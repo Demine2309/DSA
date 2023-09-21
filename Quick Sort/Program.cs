@@ -123,7 +123,7 @@
             #region Programz
             Solution solution = new Solution();
 
-            int[] nums = { 9, 7, 5, 12, 48, 7, 0, -6 };
+            int[] nums = { 8, 7, 119,215,2,-8,666 };
             Console.WriteLine("Before sort:");
             solution.PrintArray(nums);
 
