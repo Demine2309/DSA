@@ -75,7 +75,7 @@
             int i = start + 1;
             int pivot = A[start];
 
-            for(int j = start + 1; j <= end; j++)
+            for (int j = start + 1; j <= end; j++)
             {
                 if (A[j] < pivot)
                 {
@@ -85,13 +85,13 @@
             }
 
             Swap(A, start, i - 1);
-            
+
             return i - 1;
         }
 
         public void QuickSort(int[] A, int start, int end)
         {
-            if(start < end)
+            if (start < end)
             {
                 int pivPos = Partition(A, start, end);
                 QuickSort(A, start, pivPos - 1);
@@ -123,7 +123,7 @@
             #region Programz
             Solution solution = new Solution();
 
-            int[] nums = { 8, 7, 6, 1, 0, 9, 2 };
+            int[] nums = { 9, 7, 5, 12, 48, 7, 0, -6 };
             Console.WriteLine("Before sort:");
             solution.PrintArray(nums);
 
