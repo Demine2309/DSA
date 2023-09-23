@@ -114,16 +114,18 @@
             }
         }
         #endregion
+
+
     }
 
     class MainClass
     {
         static void Main(string[] args)
         {
-            #region Programz
+            #region Test above algorithm
             Solution solution = new Solution();
 
-            int[] nums = { 8, 7, 119,215,2,-8,666 };
+            int[] nums = { 8, 7, 119, 215, 2, -8, 666 };
             Console.WriteLine("Before sort:");
             solution.PrintArray(nums);
 
