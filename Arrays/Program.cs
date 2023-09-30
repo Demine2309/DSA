@@ -17,7 +17,7 @@
             {
                 Console.Write($"Row({n}): ");
 
-                for(int k =0;  k < jaggedArr[n].Length; k++)
+                for (int k = 0; k < jaggedArr[n].Length; k++)
                 {
                     Console.Write($"{jaggedArr[n][k]} ");
                 }
