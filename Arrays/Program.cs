@@ -30,7 +30,34 @@
     #region Minimum Length
     class Solution
     {
+        public int MinimumSubarrayLengthToMatchArrays(int[] A, int[] B)
+        {
+            int n = A.Length;
+            int[] diff = new int[n];
 
+            for (int i = 0; i < n; i++)
+            {
+                diff[i] = Math.Abs(A[i] - B[i]);
+            }
+
+            int totalDiff = diff.Sum();
+
+            int left = 0, minLength = int.MaxValue, curDiff = 0;
+
+            for (int right = 0; right < n; right++)
+            {
+                curDiff += diff[right];
+
+                while (curDiff >= totalDiff)
+                {
+                    minLength = Math.Min(minLength, right - left + 1);
+                    curDiff -= diff[left];
+                    left++;
+                }
+            }
+
+            return minLength;
+        }
     }
 
     class MainClass
@@ -38,6 +65,13 @@
         static void Main(string[] args)
         {
             Solution solution = new Solution();
+
+            int[] A = { 1, 1, 2, 1 };
+            int[] B = { 2, 1, 1, 1 };
+
+            int result = solution.MinimumSubarrayLengthToMatchArrays(A, B);
+
+            Console.WriteLine(result);
         }
     }
     #endregion
