@@ -28,35 +28,116 @@
     #endregion
 
     #region Minimum Length
+    //class Solution
+    //{
+    //    public int MinimumSubarrayLengthToMatchArrays(int[] A, int[] B)
+    //    {
+    //        int n = A.Length;
+    //        int[] diff = new int[n];
+
+    //        for (int i = 0; i < n; i++)
+    //        {
+    //            diff[i] = Math.Abs(A[i] - B[i]);
+    //        }
+
+    //        int totalDiff = diff.Sum();
+
+    //        int left = 0, minLength = int.MaxValue, curDiff = 0;
+
+    //        for (int right = 0; right < n; right++)
+    //        {
+    //            curDiff += diff[right];
+
+    //            while (curDiff >= totalDiff)
+    //            {
+    //                minLength = Math.Min(minLength, right - left + 1);
+    //                curDiff -= diff[left];
+    //                left++;
+    //            }
+    //        }
+
+    //        return minLength;
+    //    }
+    //}
+
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution solution = new Solution();
+
+    //        int[] A = { 1, 1, 2, 1 };
+    //        int[] B = { 2, 1, 1, 1 };
+
+    //        int result = solution.MinimumSubarrayLengthToMatchArrays(A, B);
+
+    //        Console.WriteLine(result);
+    //    }
+    //}
+    #endregion
+
+    #region Array Class
+    //// C# program to creating an array of the string as coffee name, store coffee name in the store, and prints each value.
+    //class Program
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        // Declares an 1-D array of string
+    //        string[] store;
+
+    //        store = new string[]
+    //        {
+    //            "Americano, ",
+    //            "Cafe au lait, ",
+    //            "Epresso, ",
+    //            "Cappuccino, ",
+    //            "Long Black, ",
+    //            "Macchiato."
+    //        };
+
+    //        Console.WriteLine("Different types of coffee:");
+    //        Console.WriteLine();
+    //        foreach (string s in store)
+    //        {
+    //            Console.WriteLine(s);
+    //        }
+
+    //        Console.WriteLine($"\nLength of the array: {store.Length}");
+    //        Console.WriteLine($"\nRank of the array: {store.Rank}");
+
+    //        Array.Reverse( store );
+    //        Console.WriteLine("Different types of coffee:");
+    //        Console.WriteLine();
+    //        foreach (string s in store)
+    //        {
+    //            Console.WriteLine(s);
+    //        }
+    //    }
+    //}
+    #endregion
+
+    #region Kadane's Algorithm
     class Solution
     {
-        public int MinimumSubarrayLengthToMatchArrays(int[] A, int[] B)
+        public long MaxSubarraySum(int[] arr, int n) 
         {
-            int n = A.Length;
-            int[] diff = new int[n];
+            long result = arr[0];    
 
-            for (int i = 0; i < n; i++)
+            for(int i = 0; i < n; i++)
             {
-                diff[i] = Math.Abs(A[i] - B[i]);
-            }
+                int currentSum = 0;
 
-            int totalDiff = diff.Sum();
-
-            int left = 0, minLength = int.MaxValue, curDiff = 0;
-
-            for (int right = 0; right < n; right++)
-            {
-                curDiff += diff[right];
-
-                while (curDiff >= totalDiff)
+                for(int j = i; j < n; j++)
                 {
-                    minLength = Math.Min(minLength, right - left + 1);
-                    curDiff -= diff[left];
-                    left++;
+                    currentSum = currentSum + arr[j];
+
+                    if(currentSum > result)
+                    {
+                        result = currentSum;
+                    }
                 }
             }
-
-            return minLength;
+            return result;
         }
     }
 
@@ -66,10 +147,9 @@
         {
             Solution solution = new Solution();
 
-            int[] A = { 1, 1, 2, 1 };
-            int[] B = { 2, 1, 1, 1 };
+            int[] arr = { -1, -2, -3, 0, -5, 6, -7 };
 
-            int result = solution.MinimumSubarrayLengthToMatchArrays(A, B);
+            long result = solution.MaxSubarraySum(arr, arr.Length);
 
             Console.WriteLine(result);
         }
