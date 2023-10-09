@@ -117,41 +117,58 @@
     #endregion
 
     #region Kadane's Algorithm
+    //class Solution
+    //{
+    //    public long MaxSubarraySum(int[] arr, int n) 
+    //    {
+    //        long result = arr[0];    
+
+    //        for(int i = 0; i < n; i++)
+    //        {
+    //            int currentSum = 0;
+
+    //            for(int j = i; j < n; j++)
+    //            {
+    //                currentSum = currentSum + arr[j];
+
+    //                if(currentSum > result)
+    //                {
+    //                    result = currentSum;
+    //                }
+    //            }
+    //        }
+    //        return result;
+    //    }
+    //}
+
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution solution = new Solution();
+
+    //        int[] arr = { -1, -2, -3, 0, -5, 6, -7 };
+
+    //        long result = solution.MaxSubarraySum(arr, arr.Length);
+
+    //        Console.WriteLine(result);
+    //    }
+    //}
+    #endregion
+
+    #region Subarray with given Sum
     class Solution
     {
-        public long MaxSubarraySum(int[] arr, int n) 
-        {
-            long result = arr[0];    
 
-            for(int i = 0; i < n; i++)
-            {
-                int currentSum = 0;
-
-                for(int j = i; j < n; j++)
-                {
-                    currentSum = currentSum + arr[j];
-
-                    if(currentSum > result)
-                    {
-                        result = currentSum;
-                    }
-                }
-            }
-            return result;
-        }
     }
 
-    class MainClass
+    class Program
     {
         static void Main(string[] args)
         {
             Solution solution = new Solution();
 
-            int[] arr = { -1, -2, -3, 0, -5, 6, -7 };
 
-            long result = solution.MaxSubarraySum(arr, arr.Length);
-
-            Console.WriteLine(result);
         }
     }
     #endregion
