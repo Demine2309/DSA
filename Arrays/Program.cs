@@ -159,7 +159,99 @@
     #region Subarray with given Sum
     class Solution
     {
+        #region My way:
+        //public List<int> SubarraySum(int[] arr, int n, int s)
+        //{
+        //    List<int> result = new List<int>();
 
+        //    int startIndex = 0;
+        //    int endIndex = 0;
+        //    bool isResult = false;
+
+        //    for (int i = 0; i < n; i++)
+        //    {
+        //        startIndex = i + 1;
+        //        int sum = 0;
+
+        //        if (arr[i] == s)
+        //        {
+        //            result.Add(startIndex);
+        //            isResult = true;
+        //            break;
+        //        }
+
+        //        for (int j = i; j < n; j++)
+        //        {
+        //            sum += arr[j];
+        //            if (sum == s)
+        //            {
+        //                endIndex = j + 1;
+        //                isResult = true;
+        //                result.Add(startIndex);
+        //                result.Add(endIndex);
+        //                break;
+        //            }
+        //        }
+
+        //        if (isResult == true)
+        //            break;
+        //    }
+
+        //    if (isResult == false)
+        //    {
+        //        result.Add(-1);
+        //    }
+
+        //    return result;
+        //}
+
+        //public void PrintList(List<int> list)
+        //{
+        //    foreach (int i in list)
+        //    {
+        //        Console.Write(i + " ");
+        //    }
+        //}
+        #endregion
+
+        #region Optimized version
+        public List<int> SubarraySum(int[] arr, int n, int s)
+        {
+            List<int> result = new List<int>();
+
+            int sum = 0;
+            int startIndex = 0;
+
+            for(int endIndex = 0; endIndex < n; endIndex++)
+            {
+                sum += arr[endIndex];
+
+                while(sum > s)
+                {
+                    sum -= arr[startIndex];
+                    startIndex++;
+                }
+
+                if(sum == s)
+                {
+                    result.Add(startIndex + 1);
+                    result.Add(endIndex + 1);
+                    return result;
+                }
+            }
+
+            result.Add(-1);
+            return result;
+        }
+
+        public void PrintList(List<int> list)
+        {
+            foreach(int i in list)
+            {
+                Console.Write(i + " ");
+            }
+        }
+        #endregion
     }
 
     class Program
@@ -168,7 +260,11 @@
         {
             Solution solution = new Solution();
 
+            int[] arr = { 1, 2, 3, 7, 5 };
+            int s = 12;
 
+            List<int> result = solution.SubarraySum(arr, arr.Length, s);
+            solution.PrintList(result);
         }
     }
     #endregion
