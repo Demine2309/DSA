@@ -157,114 +157,138 @@
     #endregion
 
     #region Subarray with given Sum
-    class Solution
-    {
-        #region My way:
-        //public List<int> SubarraySum(int[] arr, int n, int s)
-        //{
-        //    List<int> result = new List<int>();
+    //class Solution
+    //{
+    //    #region My way:
+    //    //public List<int> SubarraySum(int[] arr, int n, int s)
+    //    //{
+    //    //    List<int> result = new List<int>();
 
-        //    int startIndex = 0;
-        //    int endIndex = 0;
-        //    bool isResult = false;
+    //    //    int startIndex = 0;
+    //    //    int endIndex = 0;
+    //    //    bool isResult = false;
 
-        //    for (int i = 0; i < n; i++)
-        //    {
-        //        startIndex = i + 1;
-        //        int sum = 0;
+    //    //    for (int i = 0; i < n; i++)
+    //    //    {
+    //    //        startIndex = i + 1;
+    //    //        int sum = 0;
 
-        //        if (arr[i] == s)
-        //        {
-        //            result.Add(startIndex);
-        //            isResult = true;
-        //            break;
-        //        }
+    //    //        if (arr[i] == s)
+    //    //        {
+    //    //            result.Add(startIndex);
+    //    //            isResult = true;
+    //    //            break;
+    //    //        }
 
-        //        for (int j = i; j < n; j++)
-        //        {
-        //            sum += arr[j];
-        //            if (sum == s)
-        //            {
-        //                endIndex = j + 1;
-        //                isResult = true;
-        //                result.Add(startIndex);
-        //                result.Add(endIndex);
-        //                break;
-        //            }
-        //        }
+    //    //        for (int j = i; j < n; j++)
+    //    //        {
+    //    //            sum += arr[j];
+    //    //            if (sum == s)
+    //    //            {
+    //    //                endIndex = j + 1;
+    //    //                isResult = true;
+    //    //                result.Add(startIndex);
+    //    //                result.Add(endIndex);
+    //    //                break;
+    //    //            }
+    //    //        }
 
-        //        if (isResult == true)
-        //            break;
-        //    }
+    //    //        if (isResult == true)
+    //    //            break;
+    //    //    }
 
-        //    if (isResult == false)
-        //    {
-        //        result.Add(-1);
-        //    }
+    //    //    if (isResult == false)
+    //    //    {
+    //    //        result.Add(-1);
+    //    //    }
 
-        //    return result;
-        //}
+    //    //    return result;
+    //    //}
 
-        //public void PrintList(List<int> list)
-        //{
-        //    foreach (int i in list)
-        //    {
-        //        Console.Write(i + " ");
-        //    }
-        //}
-        #endregion
+    //    //public void PrintList(List<int> list)
+    //    //{
+    //    //    foreach (int i in list)
+    //    //    {
+    //    //        Console.Write(i + " ");
+    //    //    }
+    //    //}
+    //    #endregion
 
-        #region Optimized version
-        public List<int> SubarraySum(int[] arr, int n, int s)
-        {
-            List<int> result = new List<int>();
+    //    #region Optimized version
+    //    public List<int> SubarraySum(int[] arr, int n, int s)
+    //    {
+    //        List<int> result = new List<int>();
 
-            int sum = 0;
-            int startIndex = 0;
+    //        int sum = 0;
+    //        int startIndex = 0;
 
-            for(int endIndex = 0; endIndex < n; endIndex++)
-            {
-                sum += arr[endIndex];
+    //        for(int endIndex = 0; endIndex < n; endIndex++)
+    //        {
+    //            sum += arr[endIndex];
 
-                while(sum > s)
-                {
-                    sum -= arr[startIndex];
-                    startIndex++;
-                }
+    //            while(sum > s)
+    //            {
+    //                sum -= arr[startIndex];
+    //                startIndex++;
+    //            }
 
-                if(sum == s)
-                {
-                    result.Add(startIndex + 1);
-                    result.Add(endIndex + 1);
-                    return result;
-                }
-            }
+    //            if(sum == s)
+    //            {
+    //                result.Add(startIndex + 1);
+    //                result.Add(endIndex + 1);
+    //                return result;
+    //            }
+    //        }
 
-            result.Add(-1);
-            return result;
-        }
+    //        result.Add(-1);
+    //        return result;
+    //    }
 
-        public void PrintList(List<int> list)
-        {
-            foreach(int i in list)
-            {
-                Console.Write(i + " ");
-            }
-        }
-        #endregion
-    }
+    //    public void PrintList(List<int> list)
+    //    {
+    //        foreach(int i in list)
+    //        {
+    //            Console.Write(i + " ");
+    //        }
+    //    }
+    //    #endregion
+    //}
 
+    //class Program
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution solution = new Solution();
+
+    //        int[] arr = { 1, 2, 3, 7, 5 };
+    //        int s = 12;
+
+    //        List<int> result = solution.SubarraySum(arr, arr.Length, s);
+    //        solution.PrintList(result);
+    //    }
+    //}
+    #endregion
+
+    #region Multi-dimensional
     class Program
     {
         static void Main(string[] args)
         {
-            Solution solution = new Solution();
+            int[,] arr = new int[3, 5]
+            {
+                { 5, 12, 17, 9, 3 },
+                { 13, 4, 8, 14, 1 },
+                { 9, 6, 3, 7, 21 }
+            };
 
-            int[] arr = { 1, 2, 3, 7, 5 };
-            int s = 12;
-
-            List<int> result = solution.SubarraySum(arr, arr.Length, s);
-            solution.PrintList(result);
+            for(int i = 0; i< 3; i++)
+            {
+                for(int j = 0; j< 5; j++)
+                {
+                    Console.Write(arr[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
         }
     }
     #endregion
