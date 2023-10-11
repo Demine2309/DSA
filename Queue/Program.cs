@@ -600,52 +600,104 @@ namespace DSA
     #endregion
 
     #region Remove Elements from ConcurrentQueue<T> Collection
-    class Program
+    //class Program
+    //{
+    //    static void Main()
+    //    {
+    //        //Creating a ConcurrentQueue to Store Integer Values
+    //        ConcurrentQueue<int> concurrentQueue = new ConcurrentQueue<int>();
+
+    //        //Adding Elements to ConcurrentQueue using Enqueue Method
+    //        concurrentQueue.Enqueue(10);
+    //        concurrentQueue.Enqueue(20);
+    //        concurrentQueue.Enqueue(30);
+    //        concurrentQueue.Enqueue(40);
+
+    //        Console.WriteLine("All Concurrent Queue Elements Before Removing");
+    //        foreach (var item in concurrentQueue)
+    //        {
+    //            Console.WriteLine(item);
+    //        }
+
+    //        // Removing and Returning the First Element from ConcurrentQueue using TryDequeue method
+    //        bool IsRemoved = concurrentQueue.TryDequeue(out int result);
+    //        Console.WriteLine($"\nTryDequeue Return : {IsRemoved}");
+    //        Console.WriteLine($"TryDequeue Result Value : {result}");
+
+    //        //Printing Elements After Removing the First Element
+    //        Console.WriteLine("All Concurrent Queue Elements After Removing");
+    //        foreach (var item in concurrentQueue)
+    //        {
+    //            Console.WriteLine(item);
+    //        }
+
+    //        // Removing and Returning the First Element from ConcurrentQueue using TryDequeue method
+    //        bool IsPeeked = concurrentQueue.TryPeek(out int Result2);
+    //        Console.WriteLine($"\nTryPeek Return : {IsPeeked}");
+    //        Console.WriteLine($"TryPeek Result Value : {Result2}");
+
+    //        //Printing Elements After Peek the First Element
+    //        Console.WriteLine("All Concurrent Queue Elements After TryPeek");
+    //        foreach (var element in concurrentQueue)
+    //        {
+    //            Console.WriteLine($"{element} ");
+    //        }
+
+    //        Console.ReadKey();
+    //    }
+    //}
+    #endregion
+    #endregion
+
+    #region First non-repeating character in a stream
+    public class Solution
     {
-        static void Main()
+        public string FirstNonRepeating(string a)
         {
-            //Creating a ConcurrentQueue to Store Integer Values
-            ConcurrentQueue<int> concurrentQueue = new ConcurrentQueue<int>();
+            int[] charCount = new int[26];
+            char[] charOrder = new char[a.Length];
+            string result = "";
 
-            //Adding Elements to ConcurrentQueue using Enqueue Method
-            concurrentQueue.Enqueue(10);
-            concurrentQueue.Enqueue(20);
-            concurrentQueue.Enqueue(30);
-            concurrentQueue.Enqueue(40);
-
-            Console.WriteLine("All Concurrent Queue Elements Before Removing");
-            foreach (var item in concurrentQueue)
+            for (int i = 0; i < a.Length; i++)
             {
-                Console.WriteLine(item);
+                char currentChar = a[i];
+                int index = currentChar - 'a';
+
+                // Update the count of the character
+                charCount[index]++;
+
+                // Update the order array
+                charOrder[i] = currentChar;
+
+                // Find the first non-repeating character
+                char firstNonRepeating = '#';
+                for (int j = 0; j <= i; j++)
+                {
+                    if (charCount[charOrder[j] - 'a'] == 1)
+                    {
+                        firstNonRepeating = charOrder[j];
+                        break;
+                    }
+                }
+
+                result += firstNonRepeating;
             }
 
-            // Removing and Returning the First Element from ConcurrentQueue using TryDequeue method
-            bool IsRemoved = concurrentQueue.TryDequeue(out int result);
-            Console.WriteLine($"\nTryDequeue Return : {IsRemoved}");
-            Console.WriteLine($"TryDequeue Result Value : {result}");
-
-            //Printing Elements After Removing the First Element
-            Console.WriteLine("All Concurrent Queue Elements After Removing");
-            foreach (var item in concurrentQueue)
-            {
-                Console.WriteLine(item);
-            }
-
-            // Removing and Returning the First Element from ConcurrentQueue using TryDequeue method
-            bool IsPeeked = concurrentQueue.TryPeek(out int Result2);
-            Console.WriteLine($"\nTryPeek Return : {IsPeeked}");
-            Console.WriteLine($"TryPeek Result Value : {Result2}");
-
-            //Printing Elements After Peek the First Element
-            Console.WriteLine("All Concurrent Queue Elements After TryPeek");
-            foreach (var element in concurrentQueue)
-            {
-                Console.WriteLine($"{element} ");
-            }
-
-            Console.ReadKey();
+            return result;
         }
     }
-    #endregion
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Solution solution = new Solution();
+            string s = "abcde";
+
+            string result = solution.FirstNonRepeating(s);
+
+            Console.WriteLine(result);
+        }
+    }
     #endregion
 }
