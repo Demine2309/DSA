@@ -677,6 +677,7 @@ namespace DSA
                     {
                         firstNonRepeating = charOrder[j];
                         break;
+
                     }
                 }
 
