@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Queue", "Queue\Queue.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linked List", "Linked List\Linked List.csproj", "{B5BBA9C4-27E2-4CE7-9259-61604863656A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrays", "Arrays\Arrays.csproj", "{A1118AD6-720E-4630-855B-930B5F4C9884}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arrays", "Arrays\Arrays.csproj", "{A1118AD6-720E-4630-855B-930B5F4C9884}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ilist interface", "Ilist interface\Ilist interface.csproj", "{67249005-749D-46E0-9C35-E85A116A3082}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{A1118AD6-720E-4630-855B-930B5F4C9884}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1118AD6-720E-4630-855B-930B5F4C9884}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1118AD6-720E-4630-855B-930B5F4C9884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67249005-749D-46E0-9C35-E85A116A3082}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67249005-749D-46E0-9C35-E85A116A3082}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67249005-749D-46E0-9C35-E85A116A3082}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67249005-749D-46E0-9C35-E85A116A3082}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
