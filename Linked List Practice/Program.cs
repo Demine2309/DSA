@@ -55,49 +55,53 @@ namespace DSA
     #endregion
 
     #region Problem 2: Write a function that counts the number of times a given int occurs in a linked list
-    public class Solution
-    {
-        public int Problem2(ListNode head, int n)
-        {
-            int m = GetCount(head);
-            int count = 0;
+    //public class Solution
+    //{
+    //    public int Problem2(ListNode head, int n)
+    //    {
+    //        int m = GetCount(head);
+    //        int count = 0;
 
-            if (head == null) return 0;
+    //        if (head == null) return 0;
 
-            for(int i = 0; i < m; i++)
-            {
-                if(head.val == n)
-                {
-                    count++;
-                }
+    //        for(int i = 0; i < m; i++)
+    //        {
+    //            if(head.val == n)
+    //            {
+    //                count++;
+    //            }
 
-                head = head.next;
-            }
+    //            head = head.next;
+    //        }
 
-            return count;
-        }
+    //        return count;
+    //    }
 
-        private int GetCount(ListNode head)
-        {
-            if(head == null) return 0;
+    //    private int GetCount(ListNode head)
+    //    {
+    //        if(head == null) return 0;
 
-            return 1 + GetCount(head.next);
-        }
-    }
+    //        return 1 + GetCount(head.next);
+    //    }
+    //}
 
-    class MainClass
-    {
-        static void Main(string[] args)
-        {
-            Solution solution = new Solution(); 
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution solution = new Solution(); 
 
-            ListNode listNode = new ListNode(1, new ListNode(2));
-            int givenNum = 1;
+    //        ListNode listNode = new ListNode(1, new ListNode(2));
+    //        int givenNum = 1;
 
-            int result = solution.Problem2(listNode, givenNum);
+    //        int result = solution.Problem2(listNode, givenNum);
 
-            Console.WriteLine(result);
-        }
-    }
+    //        Console.WriteLine(result);
+    //    }
+    //}
+    #endregion
+
+    #region Problem 3: Detect loop or cyrcle in a linked list
+
     #endregion
 }
