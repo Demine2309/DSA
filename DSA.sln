@@ -27,9 +27,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arrays", "Arrays\Arrays.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ilist interface", "Ilist interface\Ilist interface.csproj", "{67249005-749D-46E0-9C35-E85A116A3082}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linked List Practice", "Linked List Practice\Linked List Practice.csproj", "{F9D0C6A6-AFF4-40CD-9B7F-862F9C74BA1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linked List Practice", "Linked List Practice\Linked List Practice.csproj", "{F9D0C6A6-AFF4-40CD-9B7F-862F9C74BA1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hash Table", "Hash Table\Hash Table.csproj", "{384A65AD-B6A2-44E2-B038-0583EF560195}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hash Table", "Hash Table\Hash Table.csproj", "{384A65AD-B6A2-44E2-B038-0583EF560195}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queue practice", "Queue practice\Queue practice.csproj", "{2AC518D4-675A-47BC-8822-E41CB55270BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{384A65AD-B6A2-44E2-B038-0583EF560195}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{384A65AD-B6A2-44E2-B038-0583EF560195}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{384A65AD-B6A2-44E2-B038-0583EF560195}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AC518D4-675A-47BC-8822-E41CB55270BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AC518D4-675A-47BC-8822-E41CB55270BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AC518D4-675A-47BC-8822-E41CB55270BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AC518D4-675A-47BC-8822-E41CB55270BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
