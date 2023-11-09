@@ -270,25 +270,77 @@
     #endregion
 
     #region Multi-dimensional
+    //class Program
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        int[,] arr = new int[3, 5]
+    //        {
+    //            { 5, 12, 17, 9, 3 },
+    //            { 13, 4, 8, 14, 1 },
+    //            { 9, 6, 3, 7, 21 }
+    //        };
+
+    //        for(int i = 0; i< 3; i++)
+    //        {
+    //            for(int j = 0; j< 5; j++)
+    //            {
+    //                Console.Write(arr[i, j] + " ");
+    //            }
+    //            Console.WriteLine();
+    //        }
+    //    }
+    //}
+    #endregion
+
+    #region Jagged Array    
     class Program
     {
         static void Main(string[] args)
         {
-            int[,] arr = new int[3, 5]
-            {
-                { 5, 12, 17, 9, 3 },
-                { 13, 4, 8, 14, 1 },
-                { 9, 6, 3, 7, 21 }
-            };
+            int[][] arr = new int[4][];
 
-            for(int i = 0; i< 3; i++)
+            //Initializing each row with different column size
+            //Uisng one dimensional array
+            arr[0] = new int[5];
+            arr[1] = new int[6];
+            arr[2] = new int[4];
+            arr[3] = new int[5];
+
+            Console.WriteLine("Printing the Default Values of Jagged Array:");
+            for (int i = 0; i < arr.GetLength(0); i++)
             {
-                for(int j = 0; j< 5; j++)
+                //arr[i].Length: Returns the Length of Each Row
+                for (int j = 0; j < arr[i].Length; j++)
                 {
-                    Console.Write(arr[i, j] + " ");
+                    Console.Write(arr[i][j] + " ");
                 }
+
                 Console.WriteLine();
             }
+
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                int num = 10;
+                for (int j = 0; j < arr[i].Length; j++)
+                {
+                    num++;
+                    arr[i][j] = num;
+                }
+            }
+
+            Console.WriteLine("\n\nPrinting the Values of Jagged Array:");
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                foreach (int x in arr[i])
+                {
+                    Console.Write(x + " ");
+                }
+
+                Console.WriteLine() ;
+            }
+
+            Console.ReadKey();
         }
     }
     #endregion
