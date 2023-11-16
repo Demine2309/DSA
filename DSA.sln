@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linked List Practice", "Lin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hash Table", "Hash Table\Hash Table.csproj", "{384A65AD-B6A2-44E2-B038-0583EF560195}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queue practice", "Queue practice\Queue practice.csproj", "{2AC518D4-675A-47BC-8822-E41CB55270BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Queue practice", "Queue practice\Queue practice.csproj", "{2AC518D4-675A-47BC-8822-E41CB55270BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backtracking Algorithm", "Backtracking Algorithm\Backtracking Algorithm.csproj", "{01063294-26CB-44A4-AAF7-07CF57948D60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{2AC518D4-675A-47BC-8822-E41CB55270BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AC518D4-675A-47BC-8822-E41CB55270BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AC518D4-675A-47BC-8822-E41CB55270BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01063294-26CB-44A4-AAF7-07CF57948D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01063294-26CB-44A4-AAF7-07CF57948D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01063294-26CB-44A4-AAF7-07CF57948D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01063294-26CB-44A4-AAF7-07CF57948D60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
