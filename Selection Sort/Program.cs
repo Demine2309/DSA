@@ -72,15 +72,6 @@
      * 
      * Find an assignment of letters to keys that minimizes the number of keystrokes needed to type the entire text. Output that minimum number of 
      * keystrokes. If there is not enough room on the keys and some letters of the alphabet won't fit, Output -1 instead.
-     * 
-     * Input Format
-     * The first line will contain a number 'N' that specifies the size of 'frequencies' array
-     * The second line will contain N numbers that form the frequencies array
-     * The third line contains a number 'K' that specifies the size of the 'keySize' array
-     * The fourth line contains K numbers that form the keySize array
-     * 
-     * Output Format
-     * Output a single integer that is answer to the problem.
      */
 
     public class Solution
