@@ -2,30 +2,52 @@
 {
     public class Solution
     {
+        #region Way 1:
+        //public int[] InsertionSort(int[] nums)
+        //{
+        //    for (int i = 1; i < nums.Length; i++)
+        //    {
+        //        int key = i;
+        //        for (int j = key - 1; j >= 0; j--)
+        //        {
+        //            if (nums[j] > nums[key])
+        //            {
+        //                Swap(nums, j, key);
+        //                key--;
+        //            }
+        //        }
+        //    }
+
+        //    return nums;
+        //}
+
+        //public void Swap(int[] nums, int i, int j)
+        //{
+        //    int temp = nums[i];
+        //    nums[i] = nums[j];
+        //    nums[j] = temp;
+        //}
+        #endregion
+
+        #region Way 2:
         public int[] InsertionSort(int[] nums)
         {
-            for(int i = 1; i < nums.Length; i++)
+            for(int i = 0;  i < nums.Length; i++)
             {
-                int key = i;
-                for(int j = key - 1; j >=0; j--)
+                int temp = nums[i];
+                int j = i;
+                while(j>0 && nums[j - 1] > temp)
                 {
-                    if (nums[j] > nums[key])
-                    {
-                        Swap(nums, j, key);
-                        key--;
-                    }
+                    nums[j] = nums[j - 1];
+                    j--;
                 }
+
+                nums[j] = temp;
             }
 
             return nums;
         }
-
-        public void Swap(int[] nums, int i, int j)
-        {
-            int temp = nums[i];
-            nums[i] = nums[j];
-            nums[j] = temp;
-        }
+        #endregion
     }
 
     class MainClass
