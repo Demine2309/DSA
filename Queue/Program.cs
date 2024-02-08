@@ -114,6 +114,43 @@ namespace DSA
     //}
     #endregion
 
+    #region GeeksForGeeks
+    #region Array Representation of Queen
+    class GFG
+    {
+        public class Queue
+        {
+            public int front, rear, size;
+            public int cap;
+            public int[] arr;
+        }
+
+        public Queue createQueue(int cap)
+        {
+            Queue queue = new Queue();
+            queue.cap = cap;
+            queue.front = 0;
+            queue.rear = 0;
+
+            queue.rear = cap - 1;
+            queue.arr = new int[queue.cap];
+            return queue;
+        }
+    }
+
+    class MainClass
+    {
+        static void Main(string[] args)
+        {
+            GFG test = new GFG();
+
+            test.createQueue(5);
+        }
+    }
+    #endregion
+    #endregion
+
+
     #region Non-Generic Queue in C#
     #region Creating and adding
     //class Program
@@ -650,55 +687,55 @@ namespace DSA
     #endregion
 
     #region First non-repeating character in a stream
-    public class Solution
-    {
-        public string FirstNonRepeating(string a)
-        {
-            int[] charCount = new int[26];
-            char[] charOrder = new char[a.Length];
-            string result = "";
+    //public class Solution
+    //{
+    //    public string FirstNonRepeating(string a)
+    //    {
+    //        int[] charCount = new int[26];
+    //        char[] charOrder = new char[a.Length];
+    //        string result = "";
 
-            for (int i = 0; i < a.Length; i++)
-            {
-                char currentChar = a[i];
-                int index = currentChar - 'a';
+    //        for (int i = 0; i < a.Length; i++)
+    //        {
+    //            char currentChar = a[i];
+    //            int index = currentChar - 'a';
 
-                // Update the count of the character
-                charCount[index]++;
+    //            // Update the count of the character
+    //            charCount[index]++;
 
-                // Update the order array
-                charOrder[i] = currentChar;
+    //            // Update the order array
+    //            charOrder[i] = currentChar;
 
-                // Find the first non-repeating character
-                char firstNonRepeating = '#';
-                for (int j = 0; j <= i; j++)
-                {
-                    if (charCount[charOrder[j] - 'a'] == 1)
-                    {
-                        firstNonRepeating = charOrder[j];
-                        break;
+    //            // Find the first non-repeating character
+    //            char firstNonRepeating = '#';
+    //            for (int j = 0; j <= i; j++)
+    //            {
+    //                if (charCount[charOrder[j] - 'a'] == 1)
+    //                {
+    //                    firstNonRepeating = charOrder[j];
+    //                    break;
 
-                    }
-                }
+    //                }
+    //            }
 
-                result += firstNonRepeating;
-            }
+    //            result += firstNonRepeating;
+    //        }
 
-            return result;
-        }
-    }
+    //        return result;
+    //    }
+    //}
 
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Solution solution = new Solution();
-            string s = "abcde";
+    //class Program
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution solution = new Solution();
+    //        string s = "abcde";
 
-            string result = solution.FirstNonRepeating(s);
+    //        string result = solution.FirstNonRepeating(s);
 
-            Console.WriteLine(result);
-        }
-    }
+    //        Console.WriteLine(result);
+    //    }
+    //}
     #endregion
 }
