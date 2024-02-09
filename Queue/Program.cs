@@ -116,38 +116,47 @@ namespace DSA
 
     #region GeeksForGeeks
     #region Array Representation of Queen
-    class GFG
+
+    public class Queue
     {
-        public class Queue
+        public int front, rear, max;
+        public int[] ele;
+
+        public Queue(int size)
         {
-            public int front, rear, size;
-            public int cap;
-            public int[] arr;
+            ele = new int[size];
+            front = 0;
+            rear = -1;
+            max = size;
         }
 
-        public Queue createQueue(int cap)
+        // Enqueue() operation in Queue adds an element to the end of the queue
+        public void enqueue(int item)
         {
-            Queue queue = new Queue();
-            queue.cap = cap;
-            queue.front = 0;
-            queue.rear = 0;
-
-            queue.rear = cap - 1;
-            queue.arr = new int[queue.cap];
-            return queue;
+            if (rear == max - 1)
+            {
+                Console.WriteLine("Queue Overflow");
+                return;
+            }
+            else
+            {
+                ele[++rear] = item;
+            }
         }
+
+        //
     }
+
+
+    #endregion
 
     class MainClass
     {
         static void Main(string[] args)
         {
-            GFG test = new GFG();
 
-            test.createQueue(5);
         }
     }
-    #endregion
     #endregion
 
 
