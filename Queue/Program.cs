@@ -131,7 +131,7 @@ namespace DSA
         }
 
         // Enqueue() operation in Queue adds an element to the end of the queue
-        public void enqueue(int item)
+        public void Enqueue(int item)
         {
             if (rear == max - 1)
             {
@@ -144,7 +144,40 @@ namespace DSA
             }
         }
 
-        //
+        // Dequeue(): Removes the first element from the queue
+        public int Dequeue()
+        {
+            if(front == rear + 1)
+            {
+                Console.WriteLine("Queue is Empty");
+                return -1;
+            }
+            else
+            {
+                Console.WriteLine(ele[front] + " dequeued from queue");
+                int p = ele[front++];
+                Console.WriteLine($"Front item is {ele[front]}");
+                Console.WriteLine($"Rear item is {ele[rear]}");
+
+                return p;
+            }
+        }
+
+        public void PrintQueue()
+        {
+            if(front == rear + 1)
+            {
+                Console.WriteLine("Queue is empty");
+                return;
+            }
+            else
+            {
+                for(int i = front;i <= rear;i++)
+                {
+                    Console.WriteLine(ele[i] + " enqueued to queue");
+                }
+            }
+        }
     }
 
 
@@ -154,7 +187,20 @@ namespace DSA
     {
         static void Main(string[] args)
         {
+            Queue queue = new Queue(5);
 
+            queue.Enqueue(10);
+            queue.Enqueue(15);
+            queue.Enqueue(20);
+            queue.Enqueue(30);
+            queue.Enqueue(40);
+
+            queue.PrintQueue();
+
+            queue.Dequeue();
+            queue.Dequeue();
+
+            queue.PrintQueue();
         }
     }
     #endregion
