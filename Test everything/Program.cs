@@ -4,8 +4,13 @@
     {
         static void Main(string[] args)
         {
-            int e = 9 / 2;
-            Console.WriteLine(e);   
+            int[] myArray = new int[3];
+            myArray[0] = 17;
+
+            foreach(int i in myArray)
+            {
+                Console.WriteLine(i);
+            }
         }
     }
 }
