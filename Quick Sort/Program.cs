@@ -70,6 +70,17 @@
         #endregion
 
         #region Quicksort in Hackerearth
+        Random rand = new Random();
+
+        private int RandomPartition(int[] A, int start, int end)
+        {
+            int random = rand.Next(start, end);
+            Swap(A, random, start);
+
+            return Partition(A, start, end);
+        }
+
+        // Take the first element to make the pivot
         private int Partition(int[] A, int start, int end)
         {
             int i = start + 1;
@@ -93,7 +104,11 @@
         {
             if (start < end)
             {
-                int pivPos = Partition(A, start, end);
+                //int pivPos = Partition(A, start, end);
+
+                // Let’s see the randomized version of the partition function :
+                int pivPos = RandomPartition(A, start, end);
+
                 QuickSort(A, start, pivPos - 1);
                 QuickSort(A, pivPos + 1, end);
             }
@@ -125,7 +140,7 @@
             #region Test above algorithm
             Solution solution = new Solution();
 
-            int[] nums = { 8, 7, 119, 215, 2, -8, 666 };
+            int[] nums = { 9, 7, 8, -11, 14, 0, 3, 2, 1 };
             Console.WriteLine("Before sort:");
             solution.PrintArray(nums);
 
