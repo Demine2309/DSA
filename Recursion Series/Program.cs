@@ -226,25 +226,121 @@
     // Matrix max challenge
     // Challenge: Implement a recursive function called FindMatrixMax(matrix) which finds the (row, column) index position of the 
     // largest element in the matrix. You can assume 'matrix' is a 2D array of rectangular proportions.
+    //public class Solution
+    //{
+    //    public (int, int) FindMatrixMax(int row, int col, int[][] matrix)
+    //    {
+    //        if (row == matrix.Length)
+    //            return (-1, -1);
+
+    //        if (col == matrix[row].Length)
+    //            return FindMatrixMax(row + 1, 0, matrix);
+
+    //        (int maxRow, int maxCol) = FindMatrixMax(row, col + 1, matrix);
+
+    //        if (maxRow == -1 || matrix[row][col] > matrix[maxRow][maxCol])
+    //        {
+    //            maxRow = row;
+    //            maxCol = col;
+    //        }
+
+    //        return (maxRow, maxCol);
+    //    }
+    //}
+
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution solution = new Solution();
+
+    //        int[][] matrix = new int[][]
+    //        {
+    //            new int[] { 1, 4, 5, 2, 3 },
+    //            new int[] { 3, -4, 6, 12, 43 },
+    //            new int[] { 31, 14, -5, 52, 73 },
+    //            new int[] { 11, 24, 55, 32, 13 }
+    //        };
+
+    //        (int maxRow, int maxCol) = solution.FindMatrixMax(0, 0, matrix);
+    //        Console.WriteLine(maxRow + ", " + maxCol);
+
+    //        Console.WriteLine(matrix[maxRow][maxCol]);
+    //    }
+    //}
+    #endregion
+
+    #region Divide and Conquer: The art of breaking down problems
+    // Rethinking finding the maximum
+    // Instead of going through the array left to right we can also approach the problem by breaking it down into a 
+    // simpler problem.
+    // Notice that if we split the array into a left and a right component that finding the maximum of the left and
+    // right array equals the maximum of the whole array
+    // This process of breaking down the problem into simpler problems is called divide and conquer.
+    //public class Solution
+    //{
+    //    public int FindMaximumElement(int[] arr)
+    //    {
+    //        if (arr.Length == 0) return int.MinValue;
+
+    //        return FindMax(0, arr.Length - 1, arr);
+    //    }
+
+    //    private int FindMax(int i, int j, int[] arr)
+    //    {
+    //        if (i == j) return arr[i];
+
+    //        int mid = (i + j) / 2;
+
+    //        return Math.Max(FindMax(i, mid, arr), FindMax(mid + 1, j, arr));
+    //    }
+    //}
+
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution solution = new Solution();
+
+    //        int[] arr = { 2, 1, 0, -4, 3, 6, 7, 5 };
+
+    //        Console.WriteLine(solution.FindMaximumElement(arr));
+    //    }
+    //}
+
+    // Challenge: Modify the divide and conquer example to return the minimum value while doing a three way search.
+    // Hint: In the two way split example we split the segment in half at a single midpoint. Now we want to split 
+    // it in three ways, which means we need 2 mid points instead of a single midpoint.
     public class Solution
     {
-        public (int, int) FindMatrixMax(int row, int col, int[][] matrix)
+        public int FindMimimumElement(int[] arr)
         {
-            if (row == matrix.Length)
-                return (-1, -1);
+            if (arr.Length == 0) return int.MinValue;
 
-            if (col == matrix[row].Length)
-                return FindMatrixMax(row + 1, 0, matrix);
+            return FindMin(0, arr.Length - 1, arr);
+        }
 
-            (int maxRow, int maxCol) = FindMatrixMax(row, col + 1, matrix);
+        private int FindMin(int i, int j, int[] arr)
+        {
+            // Handle size 1 interval
+            if (i == j)
+                return arr[i];
+            // Handle size 2 interval
+            if (j - i == 1)
+                return Math.Min(arr[i], arr[i + 1]);
+            // Handle size 3 interval
+            if (j - i == 2)
+                return Math.Min(arr[i], Math.Min(arr[i + 1], arr[i + 2]));
 
-            if (maxRow == -1 || matrix[row][col] > matrix[maxRow][maxCol])
-            {
-                maxRow = row;
-                maxCol = col;
-            }
+            int third = (j - i) / 3;
+            int mid1 = i + third;
+            int mid2 = i + 2 * third;
 
-            return (maxRow, maxCol);
+            int min1 = FindMin(i, mid1, arr);
+            int min2 = FindMin(mid1 + 1, mid2, arr);
+            int min3 = FindMin(mid2 + 1, j, arr);
+
+            return Math.Min(min1, Math.Min(min2, min3));
         }
     }
 
@@ -254,18 +350,9 @@
         {
             Solution solution = new Solution();
 
-            int[][] matrix = new int[][]
-            {
-                new int[] { 1, 4, 5, 2, 3 },
-                new int[] { 3, -4, 6, 12, 43 },
-                new int[] { 31, 14, -5, 52, 73 },
-                new int[] { 11, 24, 55, 32, 13 }
-            };
+            int[] arr = { 2, 9, -3, 4, 2, 0, 8, 3, 5 };
 
-            (int maxRow, int maxCol) = solution.FindMatrixMax(0, 0, matrix);
-            Console.WriteLine(maxRow + ", " + maxCol);
-
-            Console.WriteLine(matrix[maxRow][maxCol]);
+            Console.WriteLine(solution.FindMimimumElement(arr));
         }
     }
     #endregion
