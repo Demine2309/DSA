@@ -1,45 +1,51 @@
 ﻿namespace DSA
 {
-    public class Solution
-    {
-        public int BinarySearch(int[] arr, int low, int high, int key)
-        {
-            while (low <= high)
-            {
-                int mid = (low + high) / 2;
-               
-                if (arr[mid] < key)
-                    low = mid + 1;
-                else if (arr[mid] > key)
-                    high = mid - 1;
-                else
-                    return mid;
-            }
+    #region Binary Search
+    //public class Solution
+    //{
+    //    public int BinarySearch(int[] arr, int low, int high, int key)
+    //    {
+    //        while (low <= high)
+    //        {
+    //            int mid = (low + high) / 2;
 
-            return -1;
-        }
-    }
+    //            if (arr[mid] < key)
+    //                low = mid + 1;
+    //            else if (arr[mid] > key)
+    //                high = mid - 1;
+    //            else
+    //                return mid;
+    //        }
 
-    class MainClass
-    {
-        static void Main(string[] args)
-        {
-            Solution solution = new Solution();
+    //        return -1;
+    //    }
+    //}
 
-            int[] arr = { 7, 31, 5, 2, 3, 54, 23, 6, 1, 0, 4, 8 };
-           
-            Console.WriteLine("Array before sort:");
-            foreach (int i in arr) Console.Write(i + " ");
-            Console.WriteLine();
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution solution = new Solution();
 
-            Console.WriteLine("Array after sort:");
-            Array.Sort(arr);
-            foreach (int i in arr) Console.Write(i + " ");
-            Console.WriteLine();
-            
-            int target = 8;
-            Console.WriteLine("The position of target...");
-            Console.WriteLine(solution.BinarySearch(arr, 0, arr.Length-1,target) + 1);
-        }
-    }
+    //        int[] arr = { 7, 31, 5, 2, 3, 54, 23, 6, 1, 0, 4, 8 };
+
+    //        Console.WriteLine("Array before sort:");
+    //        foreach (int i in arr) Console.Write(i + " ");
+    //        Console.WriteLine();
+
+    //        Console.WriteLine("Array after sort:");
+    //        Array.Sort(arr);
+    //        foreach (int i in arr) Console.Write(i + " ");
+    //        Console.WriteLine();
+
+    //        int target = 8;
+    //        Console.WriteLine("The position of target...");
+    //        Console.WriteLine(solution.BinarySearch(arr, 0, arr.Length - 1, target) + 1);
+    //    }
+    //}
+    #endregion
+
+    #region Binary search tree
+
+    #endregion
 }
