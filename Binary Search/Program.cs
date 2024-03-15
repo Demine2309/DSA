@@ -46,6 +46,9 @@
     #endregion
 
     #region Binary search tree
-
+    public class Solution
+    {
+        public 
+    }
     #endregion
 }
