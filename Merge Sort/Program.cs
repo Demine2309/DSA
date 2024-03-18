@@ -153,3 +153,12 @@
         }
     }
 }
+
+#region Quiz Merge sort
+/*
+ * 1. Quick Sort is not a stable sorting algorithm in its typical implementation
+ * 2. A: You have to sort 1 GB of data with only 100 MB of available main memory. Which sorting technique will be most appropriate? 
+ *    Q: Merge sort
+ *    Explain: 
+ */
+#endregion
