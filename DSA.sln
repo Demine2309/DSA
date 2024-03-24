@@ -41,7 +41,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Binary Search", "Binary Sea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greedy Algorithm", "Greedy Algorithm\Greedy Algorithm.csproj", "{26B550A7-8232-416C-9A8A-87D4947D998D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recursion Series", "Recursion Series\Recursion Series.csproj", "{88B589E8-493F-4A2A-89C5-E80F186D103C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recursion Series", "Recursion Series\Recursion Series.csproj", "{88B589E8-493F-4A2A-89C5-E80F186D103C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binary Trees and Binary Search Trees (BSTs)", "Binary Trees and Binary Search Trees (BSTs)\Binary Trees and Binary Search Trees (BSTs).csproj", "{F284513A-FB06-44A4-9ED0-C6EB2C5F9ECE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,6 +131,10 @@ Global
 		{88B589E8-493F-4A2A-89C5-E80F186D103C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88B589E8-493F-4A2A-89C5-E80F186D103C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88B589E8-493F-4A2A-89C5-E80F186D103C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F284513A-FB06-44A4-9ED0-C6EB2C5F9ECE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F284513A-FB06-44A4-9ED0-C6EB2C5F9ECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F284513A-FB06-44A4-9ED0-C6EB2C5F9ECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F284513A-FB06-44A4-9ED0-C6EB2C5F9ECE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
