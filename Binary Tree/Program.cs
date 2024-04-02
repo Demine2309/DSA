@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DSA
 {
@@ -244,11 +245,99 @@ namespace DSA
     #endregion
 
     #region Insertion in a Binary Tree is level order
+    //public class Node
+    //{
+    //    public int data;
+    //    public Node left, right;
+
+    //    public Node(int item)
+    //    {
+    //        data = item;
+    //        left = right = null;
+    //    }
+    //}
+
+    //public class BinaryTree
+    //{
+    //    public Node root;
+
+    //    public void Inorder(Node temp)
+    //    {
+    //        if(temp == null)
+    //            return;
+
+    //        Inorder(temp.left);
+    //        Console.Write(temp.data + " ");
+    //        Inorder(temp.right);    
+    //    }
+
+    //    public void Insert(Node temp, int data)
+    //    {
+    //        if(temp == null)
+    //        {
+    //            root = new Node(data);
+    //            return;
+    //        }
+
+    //        Queue<Node> queue = new Queue<Node>();  
+
+    //        queue.Enqueue(temp);
+
+    //        while (queue.Count != 0)
+    //        {
+    //            temp = queue.Peek();
+    //            queue.Dequeue();
+
+    //            if (temp.left == null)
+    //            {
+    //                temp.left = new Node(data);
+    //                break;
+    //            }
+    //            else
+    //                queue.Enqueue(temp.left);
+
+    //            if(temp.right == null)
+    //            {
+    //                temp.right = new Node(data);
+    //                break;
+    //            }
+    //            else
+    //                queue.Enqueue(temp.right);
+    //        }
+    //    }
+    //}
+
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        BinaryTree tree = new BinaryTree();
+
+    //        tree.root = new Node(10);
+    //        tree.root.left = new Node(11);
+    //        tree.root.left.left = new Node(7);
+    //        tree.root.right = new Node(9);
+    //        tree.root.right.left = new Node(15);
+    //        tree.root.right.right = new Node(8);
+
+    //        Console.WriteLine("Inoder traversal before insertion:");
+    //        tree.Inorder(tree.root);
+
+    //        int data = 12;
+    //        tree.Insert(tree.root, data);
+
+    //        Console.WriteLine("Inorder traversal after insertion");
+    //        tree.Inorder(tree.root);
+    //    }
+    //}
+    #endregion
+
+    #region Deletion in a Binary Tree
     public class Node
     {
         public int data;
         public Node left, right;
-         
+
         public Node(int item)
         {
             data = item;
@@ -266,42 +355,92 @@ namespace DSA
                 return;
 
             Inorder(temp.left);
-            Console.WriteLine(temp.data + " ");
-            Inorder(temp.right);    
+            Console.Write(temp.data + " ");
+            Inorder(temp.right);
         }
 
-        public void Insert(Node temp, int data)
+        // Function to delete deepest element in Binary Tree
+        private void DeleteDeepest(Node root, Node delNode)
         {
-            if(temp == null)
-            {
-                root = new Node(data);
-                return;
-            }
+            Queue<Node> queue = new Queue<Node>();
+            queue.Enqueue(root);
 
-            Queue<Node> queue = new Queue<Node>();  
+            Node temp = null;
 
-            queue.Enqueue(temp);
-
-            while (queue.Count != 0)
+            while(queue.Count != 0)
             {
                 temp = queue.Peek();
                 queue.Dequeue();
 
-                if (temp.left == null)
+                if(temp == delNode)
                 {
-                    temp.left = new Node(data);
-                    break;
+                    temp = null;
+                    return;
                 }
-                else
-                    queue.Enqueue(temp.left);
+                if(temp.right != null)
+                {
+                    if (temp.right == delNode)
+                    {
+                        temp.right = null;
+                        return;
+                    }
+                    else
+                        queue.Enqueue(temp.right);
+                }
+                if (temp.left != null)
+                {
+                    if (temp.left == delNode)
+                    {
+                        temp.left = null;
+                        return;
+                    }
+                    else
+                        queue.Enqueue(temp.left);
+                }
+            }
+        }
 
-                if(temp.right == null)
+        public void Delete(Node root, int key)
+        {
+            if (root == null)
+                return;
+
+            if (root.left == null && root.right == null)
+            {
+                if (root.data == key)
                 {
-                    temp.right = new Node(data);
-                    break;
+                    root = null;
+                    return;
                 }
                 else
+                    return;
+            }
+
+            Queue<Node> queue = new Queue<Node>();  
+            queue.Enqueue(root);
+
+            Node temp = null, keyNode = null;
+
+            while(queue.Count != 0)
+            {
+                temp = queue.Peek();
+                queue.Dequeue();
+
+                if(temp.data == key) 
+                    keyNode = temp;
+                
+                if(temp.left != null)
+                    queue.Enqueue(temp.left);   
+                
+                if(temp.right != null)
                     queue.Enqueue(temp.right);
+            }
+
+            if(keyNode != null)
+            {
+                int x = temp.data;
+                keyNode.data = x;
+                DeleteDeepest(root, temp);
             }
         }
     }
@@ -315,17 +454,20 @@ namespace DSA
             tree.root = new Node(10);
             tree.root.left = new Node(11);
             tree.root.left.left = new Node(7);
+            tree.root.left.right = new Node(12);
             tree.root.right = new Node(9);
             tree.root.right.left = new Node(15);
             tree.root.right.right = new Node(8);
 
-            Console.WriteLine("Inoder traversal before insertion:");
+            Console.Write("Inorder traversal "
+                          + "before deletion: ");
             tree.Inorder(tree.root);
 
-            int data = 12;
-            tree.Insert(tree.root, data);
+            int key = 11;
+            tree.Delete(tree.root, key);
 
-            Console.WriteLine("Inorder traversal after insertion");
+            Console.Write("\nInorder traversal "
+                          + "after deletion: ");
             tree.Inorder(tree.root);
         }
     }
