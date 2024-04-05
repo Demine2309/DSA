@@ -4,13 +4,20 @@
     {
         static void Main(string[] args)
         {
-            int[] myArray = new int[3];
-            myArray[0] = 17;
+            int n = 5;
+             
+            Console.WriteLine(Print(n));
+        }
 
-            foreach(int i in myArray)
+        public static int Print(int n)
+        {
+            if(n == 0)
+                return 0;
+            else
             {
-                Console.WriteLine(i);
-            }
+                Console.WriteLine(n);
+                return Print(n-1);
+            }    
         }
     }
 }
