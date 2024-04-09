@@ -324,7 +324,9 @@ namespace DSA
     #endregion
 
     #region The Knapsack problem
-
+    /*
+     * - In the Knapsack problem, 
+     */
     #endregion
     #endregion
 }
