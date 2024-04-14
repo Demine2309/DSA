@@ -337,6 +337,19 @@ namespace DSA
      *      + 'capacities': A vector with just one entry, the capacity of the knapsack
      * 2. Declare the solver
      * - The option "KNAPSACK_MULTIDIMENSION_BRANCH_AND_BOUND_SOLVER' tells the solver to use the branch and bound algorithm to solve the problem.
+     * 3. Call the slover
+     * - The program first initializes the solver, and then calls it by 'computedValue = solver.Solve()'. The total value of the optimal solution
+     *   is 'computedValue', which is the same as the total weight in this case. The program then gets the indices of the packed items in the solution
+     *   as follows:
+     *              packed_items = [x for x in range(0, len(weights[0])) if solver.BestSolutionContains(x)]
+     * - Since `solver.BestSolutionContains(x)` returns `TRUE` if the item x is included in the solution, `packed_items` is a list of the optimal packed 
+     *   items. Similarly, `packed_weights` are the weights of the packed items. ### Output of the program Here is the output of the program.
+     *      Total value = 7534
+     *      Total weight: 850
+     *      Packed items: [0, 1, 3, 4, 6, 10, 11, 12, 14, 15, 16, 17, 18, 19, 21, 22, 24, 27, 28, 29, 30, 31,
+                           32, 34, 38, 39, 41, 42, 44, 47, 48, 49]
+     *      Packed_weights: [7, 0, 22, 80, 11, 59, 18, 0, 3, 8, 15, 42, 9, 0, 47, 52, 26, 6, 29, 84, 2, 4,
+                             18, 7, 71, 3, 66, 31, 0, 65, 52, 13]
      */
     class MainClass
     {
