@@ -74,7 +74,48 @@
 			}
 		}
 
+		// Singly Linked List deletion
+		// Time complexity: O(n)
+		public void DeleteInLinkedList(int position)
+		{
+			if(position < 1)
+			{
+				Console.WriteLine("Invalid Position!");
+				return;
+			}
 
+			if(position == 1)
+			{
+				if(head == null)
+				{
+					Console.WriteLine("List is empty. Nothing to delete!");
+					return; 
+				}
+
+				head = head.next;
+			}
+			else
+			{
+				ListNode currentNode = head;
+				ListNode previousNode = null;
+				int count = 1;
+
+				while (currentNode != null && count < position)
+				{
+					previousNode = currentNode;
+					currentNode = currentNode.next;
+					count++;
+				}
+
+				if(currentNode == null)
+				{
+					Console.WriteLine("Position out of range");
+					return;
+				}
+
+				previousNode.next = currentNode.next;
+			}
+		}
 	}
 
 	class MainClass
