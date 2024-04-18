@@ -362,6 +362,11 @@ namespace DSA
             top = null;
         }
 
+        public bool IsEmptyStack()
+        {
+            return top == null;
+        }
+
         public void Push(int data)
         {
             var newNode = new ListNode(data);
@@ -387,6 +392,13 @@ namespace DSA
                 throw new InvalidOperationException("Stack is empty.");
             
             return top.data;
+        }
+
+        public void DeleteStack()
+        {
+            top = null;
+
+            Console.WriteLine("Stack has been deleted.");
         }
     }
 
