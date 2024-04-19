@@ -51,7 +51,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linked List new", "Linked L
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stacks new", "Stacks new\Stacks new.csproj", "{ADE96547-A2FD-4469-9D78-A8D30BA00B0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queues new", "Queues new\Queues new.csproj", "{3EFDA9A2-DF2C-4620-9856-9F48C84D7058}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Queues new", "Queues new\Queues new.csproj", "{3EFDA9A2-DF2C-4620-9856-9F48C84D7058}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph Algorithms", "Graph Algorithms\Graph Algorithms.csproj", "{5E962C7E-B7F6-4C6E-B049-C480B658652A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sorting", "Sorting\Sorting.csproj", "{01BEF7E9-6470-4751-AFBF-9031D34162F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -159,6 +163,14 @@ Global
 		{3EFDA9A2-DF2C-4620-9856-9F48C84D7058}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EFDA9A2-DF2C-4620-9856-9F48C84D7058}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EFDA9A2-DF2C-4620-9856-9F48C84D7058}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E962C7E-B7F6-4C6E-B049-C480B658652A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E962C7E-B7F6-4C6E-B049-C480B658652A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E962C7E-B7F6-4C6E-B049-C480B658652A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E962C7E-B7F6-4C6E-B049-C480B658652A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01BEF7E9-6470-4751-AFBF-9031D34162F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01BEF7E9-6470-4751-AFBF-9031D34162F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01BEF7E9-6470-4751-AFBF-9031D34162F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01BEF7E9-6470-4751-AFBF-9031D34162F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
