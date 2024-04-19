@@ -94,6 +94,36 @@
     #endregion
 
     #region Insertion Sort
+    class MainClass
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = { 12, 5, 3, 6, 8, 213, 45, 2, 0, 23 };
 
+            InsertionSort(arr);
+
+            foreach (int i in arr)
+            {
+                Console.Write(i + " ");
+            }
+        }
+
+        static void InsertionSort(int[] arr)
+        {
+            for(int i = 1;i < arr.Length - 1; i++)
+            {
+                int v = arr[i];
+                int j = i;
+                
+                while (arr[j - 1] > v && j >= 1)
+                {
+                    arr[j] = arr[j - 1];
+                    j--;
+                }
+
+                arr[j] = v;
+            }
+        }
+    }
     #endregion
 }
