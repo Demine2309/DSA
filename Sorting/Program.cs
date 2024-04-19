@@ -94,36 +94,42 @@
     #endregion
 
     #region Insertion Sort
-    class MainClass
-    {
-        static void Main(string[] args)
-        {
-            int[] arr = { 12, 5, 3, 6, 8, 213, 45, 2, 0, 23 };
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        int[] arr = { 12, 5, 3, 6, 8, 213, 45, 2, 0, 23 };
 
-            InsertionSort(arr);
+    //        InsertionSort(arr);
 
-            foreach (int i in arr)
-            {
-                Console.Write(i + " ");
-            }
-        }
+    //        foreach (int i in arr)
+    //        {
+    //            Console.Write(i + " ");
+    //        }
+    //    }
 
-        static void InsertionSort(int[] arr)
-        {
-            for(int i = 1;i < arr.Length - 1; i++)
-            {
-                int v = arr[i];
-                int j = i;
-                
-                while (arr[j - 1] > v && j >= 1)
-                {
-                    arr[j] = arr[j - 1];
-                    j--;
-                }
+    //    static void InsertionSort(int[] arr)
+    //    {
+    //        for (int i = 1; i < arr.Length; i++)
+    //        {
+    //            int v = arr[i];
+    //            int j = i;
 
-                arr[j] = v;
-            }
-        }
-    }
+    //            while (j > 0 && arr[j - 1] > v)
+    //            {
+    //                arr[j] = arr[j - 1];
+    //                j--;
+    //            }
+
+    //            arr[j] = v;
+    //        }
+    //    }
+    //}
+
+    //// Time complexity: Worst case/Average case: O(n^2); Best case: O(n) 
+    #endregion
+
+    #region Shell Sort
+
     #endregion
 }
