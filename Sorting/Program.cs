@@ -130,6 +130,130 @@
     #endregion
 
     #region Shell Sort
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        int[] arr = { 12, 5, 3, 6, 8, 213, 45, 2, 0, 23 };
 
+    //        ShellSort(arr);
+
+    //        foreach (int i in arr)
+    //        {
+    //            Console.Write(i + " ");
+    //        }
+    //    }
+
+    //    static void ShellSort(int[] arr)
+    //    {
+    //        int h = 1;
+
+    //        //for (h = 1; h < arr.Length / 9; h = 3 * h + 1);
+    //        //for (; h > 0; h = h / 3)
+    //        //{
+    //        //    for (int i = h + 1; i < arr.Length; i++)
+    //        //    {
+    //        //        int v = arr[i];
+    //        //        int j = i;
+    //        //        while (j > h && arr[j - h] > v)
+    //        //        {
+    //        //            arr[j] = arr[j - h];
+    //        //            j -= h;
+    //        //        }
+
+    //        //        arr[j] = v;
+    //        //    }
+    //        //}
+
+    //        // Another way to execute this code
+    //        while (h <= arr.Length / 9)
+    //        {
+    //            h = 3 * h + 1;
+    //        }
+
+    //        while (h > 0)
+    //        {
+    //            for (int i = h; i < arr.Length; i++)
+    //            {
+    //                int v = arr[i];
+    //                int j = i;
+
+    //                while (j >= h && arr[j - h] > v)
+    //                {
+    //                    arr[j] = arr[j - h];
+    //                    j -= h;
+    //                }
+
+    //                arr[j] = v;
+    //            }
+
+    //            h /= 3;
+    //        }
+    //    }
+    //}
+
+    //// Best case complexity: O(n)
+    //// Average case complexity depends on gap sequence
+    //// Worst case complexity depends on gap sequence.Best known: O(nlogn^2)
+    #endregion
+
+    #region Merge Sort
+    class MainClass
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = { 12, 5, 3, 6, 8, 213, 45, 2, 0, 23 };
+            int[] temp = new int[arr.Length];
+
+            MergeSort(arr, temp, 0, arr.Length - 1);
+
+            foreach (int i in arr)
+            {
+                Console.Write(i + "  ");
+            }
+        }
+
+        static void MergeSort(int[] arr, int[] temp, int left, int right)
+        {
+            if (right > left)
+            {
+                int mid = (right + left) / 2;
+                MergeSort(arr, temp, left, mid);
+                MergeSort(arr, temp, mid + 1, right);
+                Merge(arr, temp, left, mid + 1, right);
+            }
+        }
+
+        static void Merge(int[] arr, int[] temp, int left, int mid, int right)
+        {
+            int leftEnd, size, tempPos;
+
+            leftEnd = mid - 1;
+            tempPos = left;
+            size = right - left + 1;
+
+            while (left <= leftEnd && mid <= right)
+            {
+                if (arr[left] <= arr[mid])
+                    temp[tempPos++] = arr[left++];
+                else
+                    temp[tempPos++] = arr[mid++];
+            }
+
+            while (left <= leftEnd)
+                temp[tempPos++] = arr[left++];
+
+            while (mid <= right)
+                temp[tempPos++] = arr[mid++];
+
+            for (int i = 0; i < size; i++)
+            {
+                arr[right] = temp[right];
+                right--;
+            }
+        }
+    }
+
+    // Time complexity: In 3 cases is O(nlogn)
     #endregion
 }
