@@ -1,4 +1,6 @@
-﻿namespace DSA
+﻿using System.Runtime.InteropServices;
+
+namespace DSA
 {
     #region Bubble Sort
     //class MainClass
@@ -198,14 +200,73 @@
     #endregion
 
     #region Merge Sort
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        int[] arr = { 12, 5, 3, 6, 8, 213, 45, 2, 0, 23 };
+    //        int[] temp = new int[arr.Length];
+
+    //        MergeSort(arr, temp, 0, arr.Length - 1);
+
+    //        foreach (int i in arr)
+    //        {
+    //            Console.Write(i + "  ");
+    //        }
+    //    }
+
+    //    static void MergeSort(int[] arr, int[] temp, int left, int right)
+    //    {
+    //        if (right > left)
+    //        {
+    //            int mid = (right + left) / 2;
+    //            MergeSort(arr, temp, left, mid);
+    //            MergeSort(arr, temp, mid + 1, right);
+    //            Merge(arr, temp, left, mid + 1, right);
+    //        }
+    //    }
+
+    //    static void Merge(int[] arr, int[] temp, int left, int mid, int right)
+    //    {
+    //        int leftEnd, size, tempPos;
+
+    //        leftEnd = mid - 1;
+    //        tempPos = left;
+    //        size = right - left + 1;
+
+    //        while (left <= leftEnd && mid <= right)
+    //        {
+    //            if (arr[left] <= arr[mid])
+    //                temp[tempPos++] = arr[left++];
+    //            else
+    //                temp[tempPos++] = arr[mid++];
+    //        }
+
+    //        while (left <= leftEnd)
+    //            temp[tempPos++] = arr[left++];
+
+    //        while (mid <= right)
+    //            temp[tempPos++] = arr[mid++];
+
+    //        for (int i = 0; i < size; i++)
+    //        {
+    //            arr[right] = temp[right];
+    //            right--;
+    //        }
+    //    }
+    //}
+
+    //// Time complexity: In 3 cases is O(nlogn)
+    #endregion
+
+    #region Quick Sort
     class MainClass
     {
         static void Main(string[] args)
         {
-            int[] arr = { 12, 5, 3, 6, 8, 213, 45, 2, 0, 23 };
-            int[] temp = new int[arr.Length];
+            int[] arr = { 12, 5, 3, 6, 8, 213, 45, 2, 0, 23, -6 };
 
-            MergeSort(arr, temp, 0, arr.Length - 1);
+            QuickSort(arr, 0, arr.Length - 1);
 
             foreach (int i in arr)
             {
@@ -213,47 +274,46 @@
             }
         }
 
-        static void MergeSort(int[] arr, int[] temp, int left, int right)
+        static void QuickSort(int[] arr, int low, int high)
         {
-            if (right > left)
+            if (high > low)
             {
-                int mid = (right + left) / 2;
-                MergeSort(arr, temp, left, mid);
-                MergeSort(arr, temp, mid + 1, right);
-                Merge(arr, temp, left, mid + 1, right);
+                int pivot = Partition(arr, low, high);
+                QuickSort(arr, low, pivot - 1);
+                QuickSort(arr, pivot + 1, high);
             }
         }
 
-        static void Merge(int[] arr, int[] temp, int left, int mid, int right)
+        static int Partition(int[] arr, int low, int high)
         {
-            int leftEnd, size, tempPos;
+            int left, right, pivotItem = arr[low];
+            left = low;
+            right = high;
 
-            leftEnd = mid - 1;
-            tempPos = left;
-            size = right - left + 1;
-
-            while (left <= leftEnd && mid <= right)
+            while (left < right)
             {
-                if (arr[left] <= arr[mid])
-                    temp[tempPos++] = arr[left++];
-                else
-                    temp[tempPos++] = arr[mid++];
+                while (arr[left] <= pivotItem)
+                    left++;
+                while (arr[right] > pivotItem)
+                    right--;
+
+                if (left < right)
+                {
+                    int temp = arr[left];
+                    arr[left] = arr[right];
+                    arr[right] = temp;
+                }
             }
 
-            while (left <= leftEnd)
-                temp[tempPos++] = arr[left++];
-
-            while (mid <= right)
-                temp[tempPos++] = arr[mid++];
-
-            for (int i = 0; i < size; i++)
-            {
-                arr[right] = temp[right];
-                right--;
-            }
+            arr[low] = arr[right];
+            arr[right] = pivotItem;
+            return right;
         }
     }
 
-    // Time complexity: In 3 cases is O(nlogn)
+    // Worst case Complexity: O(n^2)
+    // Best case Complexity: O(nlogn)
+    // Average case Complexity: O(nlogn)
+
     #endregion
 }
