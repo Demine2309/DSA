@@ -260,60 +260,174 @@ namespace DSA
     #endregion
 
     #region Quick Sort
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        int[] arr = { 12, 5, 3, 6, 8, 213, 45, 2, 0, 23, -6 };
+
+    //        QuickSort(arr, 0, arr.Length - 1);
+
+    //        foreach (int i in arr)
+    //        {
+    //            Console.Write(i + "  ");
+    //        }
+    //    }
+
+    //    static void QuickSort(int[] arr, int low, int high)
+    //    {
+    //        if (high > low)
+    //        {
+    //            int pivot = Partition(arr, low, high);
+    //            QuickSort(arr, low, pivot - 1);
+    //            QuickSort(arr, pivot + 1, high);
+    //        }
+    //    }
+
+    //    static int Partition(int[] arr, int low, int high)
+    //    {
+    //        int left, right, pivotItem = arr[low];
+    //        left = low;
+    //        right = high;
+
+    //        while (left < right)
+    //        {
+    //            while (arr[left] <= pivotItem)
+    //                left++;
+    //            while (arr[right] > pivotItem)
+    //                right--;
+
+    //            if (left < right)
+    //            {
+    //                int temp = arr[left];
+    //                arr[left] = arr[right];
+    //                arr[right] = temp;
+    //            }
+    //        }
+
+    //        arr[low] = arr[right];
+    //        arr[right] = pivotItem;
+    //        return right;
+    //    }
+    //}
+
+    //// Worst case Complexity: O(n^2)
+    //// Best case Complexity: O(nlogn)
+    //// Average case Complexity: O(nlogn)
+    #endregion
+
+    #region Counting Sort
+    //public class Solution
+    //{
+    //    public void CountingSort(int[] arr, int[] B, int k)
+    //    {
+    //        int[] temp = new int[k];
+
+    //        for (int i = 0; i < k; i++)
+    //        {
+    //            temp[i] = 0;
+    //        }
+
+    //        for (int j = 0; j < arr.Length; j++)
+    //        {
+    //            temp[arr[j]] = temp[arr[j]] + 1;
+    //        }
+
+    //        for (int i = 1; i < k; i++)
+    //        {
+    //            temp[i] = temp[i] + temp[i - 1];
+    //        }
+
+    //        for (int j = arr.Length - 1; j >= 0; j--)
+    //        {
+    //            B[temp[arr[j]] - 1] = arr[j];
+    //            temp[arr[j]] = temp[arr[j]] - 1;
+    //        }
+    //    }
+    //}
+
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution solution = new Solution();
+
+    //        int[] arr = { 12, 5, 3, 6, 8, 213, 45, 2, 0, 23 };
+    //        int[] B = new int[arr.Length];
+
+    //        solution.CountingSort(arr, B, arr.Max() + 1);
+
+    //        foreach (int i in B)
+    //        {
+    //            Console.Write(i + " ");
+    //        }
+    //    }
+    //}
+
+    //// Time complexity: O(n)
+    #endregion
+
+    #region Bucket Sort
+    //public class Solution
+    //{
+    //    public void BucketSort(int[] arr)
+    //    {
+    //        int[] buckets = new int[arr.Max() + 1];
+
+    //        for(int j = 0; j < buckets.Length; j++)
+    //            buckets[j] = 0;
+
+    //        for(int i = 0; i < arr.Length; i++)
+    //            buckets[arr[i]]++;
+
+    //        for(int i = 0, j = 0; j < buckets.Length; j++)
+    //        {
+    //            for(int k = buckets[j]; k > 0; k--)
+    //            {
+    //                arr[i] = j;
+    //                i++;
+    //            }
+    //        }
+    //    }
+    //}
+
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution solution = new Solution();
+
+    //        int[] arr = { 12, 5, 3, 6, 8};
+
+    //        solution.BucketSort(arr);
+
+    //        foreach(int i in arr)
+    //        {
+    //            Console.Write(i + " ");
+    //        }
+    //    }
+    //}
+
+    //// Time complexity: O(n)
+    #endregion
+
+    #region Radix Sort
+    public class Solution
+    {
+        public void RadixSort()
+        {
+
+        }
+    }
+
     class MainClass
     {
         static void Main(string[] args)
         {
-            int[] arr = { 12, 5, 3, 6, 8, 213, 45, 2, 0, 23, -6 };
+            Solution solution = new Solution();
 
-            QuickSort(arr, 0, arr.Length - 1);
 
-            foreach (int i in arr)
-            {
-                Console.Write(i + "  ");
-            }
-        }
-
-        static void QuickSort(int[] arr, int low, int high)
-        {
-            if (high > low)
-            {
-                int pivot = Partition(arr, low, high);
-                QuickSort(arr, low, pivot - 1);
-                QuickSort(arr, pivot + 1, high);
-            }
-        }
-
-        static int Partition(int[] arr, int low, int high)
-        {
-            int left, right, pivotItem = arr[low];
-            left = low;
-            right = high;
-
-            while (left < right)
-            {
-                while (arr[left] <= pivotItem)
-                    left++;
-                while (arr[right] > pivotItem)
-                    right--;
-
-                if (left < right)
-                {
-                    int temp = arr[left];
-                    arr[left] = arr[right];
-                    arr[right] = temp;
-                }
-            }
-
-            arr[low] = arr[right];
-            arr[right] = pivotItem;
-            return right;
         }
     }
-
-    // Worst case Complexity: O(n^2)
-    // Best case Complexity: O(nlogn)
-    // Average case Complexity: O(nlogn)
-
     #endregion
 }
