@@ -1,36 +1,46 @@
 ﻿namespace DSA
 {
-	#region First Repeat
-	public class Solution
-	{
-		public char FirstRepeatedChar(string str)
-		{
-			int[] count = new int[256];
+    #region First Repeat
+    public class Solution
+    {
+        public char FirstRepeatedChar(string str)
+        {
+            int[] charFrequency = new int[58];
 
-			for(int i = 0; i < 256; i++)
-				count[i] = 0;
-			
-			for(int i = 0; i < str.Length; i++)
-			{
-				if (count[str[i]] == 1)
-				{
-					Console.Write(str[i]);
-					break;
-				}
-				else
-					count[str[i]]++;
-			}
-		}
-	}
+            for (int i = 65; i < 123; i++)
+                charFrequency[i - 65] = 0;
 
-	class MainClass
-	{
-		static void Main(string[] args)
-		{
-			Solution solution = new Solution();
+            foreach (char s in str)
+                charFrequency[s - 65]++;
 
+            foreach (char s in str)
+            {
+                if (charFrequency[s - 65] > 0)
+                    return s;
+            }
 
-		}
-	}
-	#endregion
+            return '\0';
+        }
+    }
+
+    class MainClass
+    {
+        static void Main(string[] args)
+        {
+            Solution solution = new Solution();
+
+            string str = "woooooooooow";
+            char result = solution.FirstRepeatedChar(str);
+
+            if (result != '\0')
+            {
+                Console.WriteLine($"The first repeated character in \"{str}\" is: {result}");
+            }
+            else
+            {
+                Console.WriteLine($"No repeated characters found in \"{str}\".");
+            }
+        }
+    }
+    #endregion
 }
