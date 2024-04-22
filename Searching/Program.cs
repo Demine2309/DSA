@@ -128,6 +128,52 @@
     #endregion
 
     #region Interpolation Search
+    public class Solution
+    {
+        public int InterpolationSearch(int[] arr, int data)
+        {
+            int low = 0, high = arr.Length - 1;
+
+            while (low < high)
+            {
+                int mid = low + (((data - arr[low]) * (high - low)) / (arr[high] - arr[low]));
+
+                if (data == arr[mid])
+                    return mid;
+
+                if (data < arr[mid])
+                    high = mid - 1;
+                else
+                    low = mid + 1;
+            }
+
+            return -1;
+        }
+    }
+
+    class MainClass
+    {
+        static void Main(string[] args)
+        {
+            Solution solution = new Solution();
+
+            int[] arr = { 12, 5, 48, 5, 4, 13, 5, 4, 56, 1, 2, 84, 5, 1, 2, 4, 51, 5, 4, 5, 1, 54, 8, 48, 51 };
+
+            Array.Sort(arr);
+
+            foreach (int i in arr)
+            {
+                Console.Write(i + " ");
+            }
+
+            Console.WriteLine("\n" + solution.InterpolationSearch(arr, 56));
+        }
+    }
+
+    // Time complexity: In average case: O(log(logn)), in worst case: O(n)
+    #endregion
+
+    #region MyRegion
 
     #endregion
 }
