@@ -412,22 +412,69 @@ namespace DSA
     #endregion
 
     #region Radix Sort
-    public class Solution
-    {
-        public void RadixSort()
-        {
+    //public class Solution
+    //{
+    //    public void RadixSort(int[] arr)
+    //    {
+    //        int maxVal = arr.Max();
+    //        int exp = 1; // Initialize the exponent for the current digit place
 
-        }
-    }
+    //        while(maxVal / exp > 0)
+    //        {
+    //            int[] output = new int[arr.Length];
+    //            CountingSort(arr, output, maxVal + 1);
+    //            Array.Copy(output, arr, arr.Length);
 
-    class MainClass
-    {
-        static void Main(string[] args)
-        {
-            Solution solution = new Solution();
+    //            exp *= 10;
+    //        }
+    //    }
 
+    //    private void CountingSort(int[] arr, int[] B, int k)
+    //    {
+    //        int[] temp = new int[k];
 
-        }
-    }
+    //        for (int i = 0; i < k; i++)
+    //        {
+    //            temp[i] = 0;
+    //        }
+
+    //        for (int j = 0; j < arr.Length; j++)
+    //        {
+    //            temp[arr[j]] = temp[arr[j]] + 1;
+    //        }
+
+    //        for (int i = 1; i < k; i++)
+    //        {
+    //            temp[i] = temp[i] + temp[i - 1];
+    //        }
+
+    //        for (int j = arr.Length - 1; j >= 0; j--)
+    //        {
+    //            B[temp[arr[j]] - 1] = arr[j];
+    //            temp[arr[j]] = temp[arr[j]] - 1;
+    //        }
+    //    }
+    //}
+
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution solution = new Solution();
+
+    //        int[] arr = { 12, 5, 3, 6, 8, 213, 45, 2, 0, 23 };
+
+    //        solution.RadixSort(arr);
+
+    //        foreach (int i in arr)
+    //        {
+    //            Console.Write(i + " ");
+    //        }
+    //    }
+    //}
+
+    //// Time complexity: O(n)
     #endregion
+
+
 }
