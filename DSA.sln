@@ -65,7 +65,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Problems & Solutions (Searc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Problems & Solutions (Selection Algorithms)", "Selection Algorithms (Medians)\Problems & Solutions (Selection Algorithms).csproj", "{5DFFD1D9-50A7-416F-8C50-EAFEBF59FE3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashing", "Hashing\Hashing.csproj", "{158D3F18-AF7E-4947-924B-9BD9AD0941B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing", "Hashing\Hashing.csproj", "{158D3F18-AF7E-4947-924B-9BD9AD0941B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problems & Solutions (Hashing)", "Problems & Solutions (Hashing)\Problems & Solutions (Hashing).csproj", "{00473249-FD1B-4675-851D-7E43EE2D3103}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -201,6 +203,10 @@ Global
 		{158D3F18-AF7E-4947-924B-9BD9AD0941B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{158D3F18-AF7E-4947-924B-9BD9AD0941B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{158D3F18-AF7E-4947-924B-9BD9AD0941B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00473249-FD1B-4675-851D-7E43EE2D3103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00473249-FD1B-4675-851D-7E43EE2D3103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00473249-FD1B-4675-851D-7E43EE2D3103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00473249-FD1B-4675-851D-7E43EE2D3103}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

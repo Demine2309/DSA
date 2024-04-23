@@ -1,78 +1,90 @@
 ﻿namespace DSA
 {
-    public class Solution
-    {
-        #region Example: Being a very busy person, you have exactly T time to do some interseting things and you want to do maximum such things
-        //public int NumberOfThing(int[] A, int T)
-        //{
-        //    int currentTime = A[0];
-        //    int numberOfThing = 0;
+    #region Example: Being a very busy person, you have exactly T time to do some interseting things and you want to do maximum such things
+    //public class Solution
+    //{
+    //    public int NumberOfThing(int[] A, int T)
+    //    {
+    //        int currentTime = A[0];
+    //        int numberOfThing = 0;
 
-        //    for(int i = 1; i < A.Length; i++)
-        //    {
-        //        if(currentTime <= T)
-        //        {
-        //            currentTime += A[i];
-        //            numberOfThing++;
-        //        }
-        //    }
+    //        for (int i = 1; i < A.Length; i++)
+    //        {
+    //            if (currentTime <= T)
+    //            {
+    //                currentTime += A[i];
+    //                numberOfThing++;
+    //            }
+    //        }
 
-        //    return numberOfThing;
-        //}
-        #endregion
+    //        return numberOfThing;
+    //    }
+    //}
 
-        #region The scheduling problem
-        public double CalculateObjectFunction(int[] P, int[] T, int N)
-        {
-            double[] S = new double[N]; // Array to store the scores
-            double C = 0;               // Completion times
-            double F = 0;               // Objective function
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution solution = new Solution();
 
-            for (int i = 0; i < N; i++)
-            {
-                S[i] = (double)P[i] / T[i];
-            }
+    //        int[] A = { 5, 3, 4, 2, 1 };
+    //        Array.Sort(A);
 
-            Array.Sort(S);
+    //        int T = 6;
 
-            for (int i = 0; i < N; ++i)
-            {
-                int index = Array.IndexOf(S, (double)P[i] / T[i]);
-                C += T[index];
-                F += P[index] * C;
-            }
+    //        Console.WriteLine(solution.NumberOfThing(A, T));
+    //    }
+    //}
+    #endregion
 
-            return F;
-        }
-        #endregion
-    }
 
-    class MainClass
-    {
-        static void Main(string[] args)
-        {
-            #region Example 1
-            //Solution solution = new Solution();
 
-            //int[] A = { 5, 3, 4, 2, 1 };
-            //Array.Sort(A);
+    #region The scheduling problem
+    //public class Solution
+    //{
+    //    public double CalculateObjectFunction(int[] P, int[] T, int N)
+    //    {
+    //        double[] S = new double[N]; // Array to store the scores
+    //        double C = 0;               // Completion times
+    //        double F = 0;               // Objective function
 
-            //int T = 6;
+    //        for (int i = 0; i < N; i++)
+    //        {
+    //            S[i] = (double)P[i] / T[i];
+    //        }
 
-            //Console.WriteLine(solution.NumberOfThing(A, T));
-            #endregion
+    //        Array.Sort(S);
 
-            #region Example 2
-            Solution solution = new Solution();
+    //        for (int i = 0; i < N; ++i)
+    //        {
+    //            int index = Array.IndexOf(S, (double)P[i] / T[i]);
+    //            C += T[index];
+    //            F += P[index] * C;
+    //        }
 
-            int[] P = { 3, 1 };
-            int[] T = { 5, 2 };
-            int N = P.Length;
+    //        return F;
+    //    }
+    //}
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
 
-            double result = solution.CalculateObjectFunction(P, T, N);
+    //        #region Example 2
+    //        Solution solution = new Solution();
 
-            Console.WriteLine(result);
-            #endregion
-        }
-    }
+    //        int[] P = { 3, 1 };
+    //        int[] T = { 5, 2 };
+    //        int N = P.Length;
+
+    //        double result = solution.CalculateObjectFunction(P, T, N);
+
+    //        Console.WriteLine(result);
+    //        #endregion
+    //    }
+    //}
+    #endregion
+
+    #region 
+    #endregion
 }
