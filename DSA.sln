@@ -65,19 +65,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing", "Hashing\Hashing.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Problems & Solutions (Hashing)", "Problems & Solutions (Hashing)\Problems & Solutions (Hashing).csproj", "{00473249-FD1B-4675-851D-7E43EE2D3103}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problems & Solutions (Greedy Algorithms)", "Problems & Solutions (Greedy Algorithms)\Problems & Solutions (Greedy Algorithms).csproj", "{277908B6-9DE0-4E9A-9F84-174A9FD3C324}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Problems & Solutions (Greedy Algorithms)", "Problems & Solutions (Greedy Algorithms)\Problems & Solutions (Greedy Algorithms).csproj", "{277908B6-9DE0-4E9A-9F84-174A9FD3C324}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problems & Solutions (Stacks)", "Problems & Solutions (Stacks)\Problems & Solutions (Stacks).csproj", "{D07BFDD7-8226-4EA1-A22D-0EDD5DD05CD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Problems & Solutions (Stacks)", "Problems & Solutions (Stacks)\Problems & Solutions (Stacks).csproj", "{D07BFDD7-8226-4EA1-A22D-0EDD5DD05CD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problems & Solutions (Queues)", "Problems & Solutions (Queues)\Problems & Solutions (Queues).csproj", "{50A9CFA5-8C5F-489A-AF67-69CE76CD348F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Problems & Solutions (Queues)", "Problems & Solutions (Queues)\Problems & Solutions (Queues).csproj", "{50A9CFA5-8C5F-489A-AF67-69CE76CD348F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problems & Solutions (Recursion and Backtracking)", "Problems & Solutions (Recursion)\Problems & Solutions (Recursion and Backtracking).csproj", "{CCC306CD-413D-4822-BEF5-AF71C2528BA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Problems & Solutions (Recursion and Backtracking)", "Problems & Solutions (Recursion)\Problems & Solutions (Recursion and Backtracking).csproj", "{CCC306CD-413D-4822-BEF5-AF71C2528BA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problems & Solutions (Linked List)", "Problems & Solutions (Linked List)\Problems & Solutions (Linked List).csproj", "{B4012BB2-0201-4215-A324-8627AEDC5DDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Problems & Solutions (Linked List)", "Problems & Solutions (Linked List)\Problems & Solutions (Linked List).csproj", "{B4012BB2-0201-4215-A324-8627AEDC5DDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problems & Solutions (Trees)", "Problems & Solutions (Trees)\Problems & Solutions (Trees).csproj", "{C2628146-0D08-4607-BA67-95A179A71D1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Problems & Solutions (Trees)", "Problems & Solutions (Trees)\Problems & Solutions (Trees).csproj", "{C2628146-0D08-4607-BA67-95A179A71D1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Divide and Conquer Algorithms", "Divide and Conquer Algorithms\Divide and Conquer Algorithms.csproj", "{F33711FC-A263-4689-B6E8-86C202F24729}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Problems & Solutions (Divide and Conquer Algorithms)", "Divide and Conquer Algorithms\Problems & Solutions (Divide and Conquer Algorithms).csproj", "{F33711FC-A263-4689-B6E8-86C202F24729}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problems & Solutions (Dynamic Programming)", "Problems & Solutions (Dynamic Programming)\Problems & Solutions (Dynamic Programming).csproj", "{AF10C307-791C-4B3E-A368-246D5A875233}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -237,6 +239,10 @@ Global
 		{F33711FC-A263-4689-B6E8-86C202F24729}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F33711FC-A263-4689-B6E8-86C202F24729}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F33711FC-A263-4689-B6E8-86C202F24729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF10C307-791C-4B3E-A368-246D5A875233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF10C307-791C-4B3E-A368-246D5A875233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF10C307-791C-4B3E-A368-246D5A875233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF10C307-791C-4B3E-A368-246D5A875233}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
