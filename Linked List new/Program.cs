@@ -3,155 +3,158 @@
 namespace DSA
 {
     #region Single Linked List
-    //public class ListNode
-    //{
-    //	public int data;
-    //	public ListNode next;
+    public class ListNode
+    {
+        public int Data;
+        public ListNode Next;
 
-    //	public ListNode(int d)
-    //	{
-    //		data = d;
-    //		next = null;
-    //	}
-    //}
+        public ListNode(int data)
+        {
+            Data = data;
+            Next = null;
+        }
+    }
 
-    //public class SinglyLinkedList
-    //{
-    //	private ListNode head;
+    public class SinglyLinkedList
+    {
+        private ListNode head;
 
-    //	public SinglyLinkedList()
-    //	{
-    //		head = null;
-    //	}
+        public SinglyLinkedList()
+        {
+            head = null;
+        }
 
-    //	// The ListLength() function takes a linked list as input and counts the number of node in the list
-    //	// Time complexity: O(n)
-    //	public int ListLength(ListNode head)
-    //	{
-    //		ListNode current = head;
-    //		int count = 0;
+        // The ListLength() function takes a linked list as input and counts the number of node in the list
+        // Time complexity: O(n)
+        public int ListLength(ListNode head)
+        {
+            ListNode current = head;
+            int count = 0;
 
-    //		while(current != null)
-    //		{
-    //			count++;
-    //			current = current.next;
-    //		}
+            while (current != null)
+            {
+                count++;
+                current = current.Next;
+            }
 
-    //		return count;
-    //	}
+            return count;
+        }
 
-    //	// Singly linked list insertion
-    //	// Time complexity: O(n)
-    //	public void InsertInLinkedList(int data, int position)
-    //	{
-    //		ListNode newNode = new ListNode(data);
+        // Singly linked list insertion
+        // Time complexity: O(n)
+        public void InsertInLinkedList(int data, int position)
+        {
+            ListNode newNode = new ListNode(data);
 
-    //		if (position < 1)
-    //		{
-    //			Console.WriteLine("Invalid Position!");
-    //			return;
-    //		}
+            if (position < 1)
+            {
+                Console.WriteLine("Invalid Position!");
+                return;
+            }
 
-    //		if (position == 1 || head == null)
-    //		{
-    //			newNode.next = head;
-    //			head = newNode;
-    //		}
-    //		else
-    //		{
-    //			ListNode current = head;
-    //			for(int i = 1; i < position - 1 && current != null; i++)
-    //			{
-    //				current = current.next;
-    //			}
+            if (position == 1 || head == null)
+            {
+                newNode.Next = head;
+                head = newNode;
+            }
+            else
+            {
+                ListNode current = head;
 
-    //			if(current == null)
-    //			{
-    //				Console.WriteLine("Position is out of range!");
-    //				return;
-    //			}
+                for (int i = 1; i < position - 1 && current != null; i++)
+                {
+                    current = current.Next;
+                }
 
-    //			newNode.next = current.next;
-    //			current.next = newNode;
-    //		}
-    //	}
+                if (current == null)
+                {
+                    Console.WriteLine("Position is out of range!");
+                    return;
+                }
 
-    //	// Singly Linked List deletion
-    //	// Time complexity: O(n)
-    //	public void DeleteInLinkedList(int position)
-    //	{
-    //		if(position < 1)
-    //		{
-    //			Console.WriteLine("Invalid Position!");
-    //			return;
-    //		}
+                newNode.Next = current.Next;
+                current.Next = newNode;
+            }
+        }
 
-    //		if(position == 1)
-    //		{
-    //			if(head == null)
-    //			{
-    //				Console.WriteLine("List is empty. Nothing to delete!");
-    //				return; 
-    //			}
+        // Singly Linked List deletion
+        // Time complexity: O(n)
+        public void DeleteInLinkedList(int position)
+        {
+            if (position < 1)
+            {
+                Console.WriteLine("Invalid Position!");
+                return;
+            }
 
-    //			head = head.next;
-    //		}
-    //		else
-    //		{
-    //			ListNode currentNode = head;
-    //			ListNode previousNode = null;
-    //			int count = 1;
+            if (position == 1)
+            {
+                if (head == null)
+                {
+                    Console.WriteLine("List is empty. Nothing to delete!");
+                    return;
+                }
 
-    //			while (currentNode != null && count < position)
-    //			{
-    //				previousNode = currentNode;
-    //				currentNode = currentNode.next;
-    //				count++;
-    //			}
+                head = head.Next;
+            }
+            else
+            {
+                ListNode currentNode = head;
+                ListNode previousNode = null;
+                int count = 1;
 
-    //			if(currentNode == null)
-    //			{
-    //				Console.WriteLine("Position out of range");
-    //				return;
-    //			}
+                while (currentNode != null && count < position)
+                {
+                    previousNode = currentNode;
+                    currentNode = currentNode.Next;
+                    count++;
+                }
 
-    //			previousNode.next = currentNode.next;
-    //		}
-    //	}
+                if (currentNode == null)
+                {
+                    Console.WriteLine("Position out of range");
+                    return;
+                }
 
-    //	public void Display()
-    //	{
-    //		ListNode current = head;
+                previousNode.Next = currentNode.Next;
+            }
+        }
 
-    //		while(current != null)
-    //		{
-    //			Console.Write($" {current.data} ->");
-    //			current = current.next;
-    //		}
+        public void Display()
+        {
+            ListNode current = head;
 
-    //		Console.WriteLine("NULL");
-    //	}
-    //}
+            while (current != null)
+            {
+                Console.Write($" {current.Data} ->");
+                current = current.Next;
+            }
 
-    //class MainClass
-    //{
-    //	static void Main(string[] args)
-    //	{
-    //		SinglyLinkedList linkedList = new SinglyLinkedList();
-    //		linkedList.InsertInLinkedList(23, 1);
-    //		linkedList.InsertInLinkedList(9, 2);
-    //		linkedList.InsertInLinkedList(2, 3);
-    //		linkedList.InsertInLinkedList(22, 4);
+            Console.WriteLine("NULL");
+        }
+    }
 
-    //		Console.WriteLine("Original linked list:");
-    //		linkedList.Display();
+    class MainClass
+    {
+        static void Main(string[] args)
+        {
+            SinglyLinkedList linkedList = new SinglyLinkedList();
+            linkedList.InsertInLinkedList(23, 1);
+            linkedList.InsertInLinkedList(9, 2);
+            linkedList.InsertInLinkedList(2, 3);
+            linkedList.InsertInLinkedList(22, 4);
 
-    //		linkedList.DeleteInLinkedList(2);
+            linkedList.InsertInLinkedList(33, 2);
 
-    //		Console.WriteLine("Linked list after deleting node:");
-    //		linkedList.Display();
-    //	}
-    //}
+            Console.WriteLine("Original linked list:");
+            linkedList.Display();
+
+            linkedList.DeleteInLinkedList(2);
+
+            Console.WriteLine("Linked list after deleting node:");
+            linkedList.Display();
+        }
+    }
     #endregion
 
     #region Doubly Linked List
@@ -341,81 +344,81 @@ namespace DSA
     #endregion
 
     #region Implement stack using Linked List
-    public class ListNode
-    {
-        public int data;
-        public ListNode next;
+    //public class ListNode
+    //{
+    //    public int data;
+    //    public ListNode next;
 
-        public ListNode(int data)
-        {
-            this.data = data;
-            next = null;
-        }
-    }
+    //    public ListNode(int data)
+    //    {
+    //        this.data = data;
+    //        next = null;
+    //    }
+    //}
 
-    public class Stack
-    {
-        private ListNode top;
+    //public class Stack
+    //{
+    //    private ListNode top;
 
-        public Stack()
-        {
-            top = null;
-        }
+    //    public Stack()
+    //    {
+    //        top = null;
+    //    }
 
-        public bool IsEmptyStack()
-        {
-            return top == null;
-        }
+    //    public bool IsEmptyStack()
+    //    {
+    //        return top == null;
+    //    }
 
-        public void Push(int data)
-        {
-            var newNode = new ListNode(data);
-            newNode.next = top;
-            top = newNode;
-        }
+    //    public void Push(int data)
+    //    {
+    //        var newNode = new ListNode(data);
+    //        newNode.next = top;
+    //        top = newNode;
+    //    }
 
-        public int Pop()
-        {
-            if(top == null)
-            {
-                throw new InvalidOperationException("Stack is empty.");
-            }
+    //    public int Pop()
+    //    {
+    //        if(top == null)
+    //        {
+    //            throw new InvalidOperationException("Stack is empty.");
+    //        }
 
-            int poppedData = top.data;
-            top = top.next;
-            return poppedData;
-        }
+    //        int poppedData = top.data;
+    //        top = top.next;
+    //        return poppedData;
+    //    }
 
-        public int Peek()
-        {
-            if (top == null)
-                throw new InvalidOperationException("Stack is empty.");
-            
-            return top.data;
-        }
+    //    public int Peek()
+    //    {
+    //        if (top == null)
+    //            throw new InvalidOperationException("Stack is empty.");
 
-        public void DeleteStack()
-        {
-            top = null;
+    //        return top.data;
+    //    }
 
-            Console.WriteLine("Stack has been deleted.");
-        }
-    }
+    //    public void DeleteStack()
+    //    {
+    //        top = null;
 
-    class MainClass
-    {
-        static void Main(string[] args)
-        {
-            Stack myStack = new Stack();
-            myStack.Push(3);
-            myStack.Push(9);
-            myStack.Push(23);
-            myStack.Push(13);
+    //        Console.WriteLine("Stack has been deleted.");
+    //    }
+    //}
 
-            Console.WriteLine(myStack.Pop());
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Stack myStack = new Stack();
+    //        myStack.Push(3);
+    //        myStack.Push(9);
+    //        myStack.Push(23);
+    //        myStack.Push(13);
 
-            Console.WriteLine(myStack.Peek());
-        }
-    }
+    //        Console.WriteLine(myStack.Pop());
+
+    //        Console.WriteLine(myStack.Peek());
+    //    }
+    //}
     #endregion
 }
