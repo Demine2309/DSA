@@ -328,9 +328,55 @@
 
     public class Solution
     {
-        private ListNode head;
+        public ListNode head;
 
+        public Solution()
+        {
+            head = null;
+        }
 
+        public void InsertInSortedList(int value)
+        {
+            ListNode newNode = new ListNode(value);
+
+            if (head == null)
+            {
+                newNode.Next = head;
+                head = newNode;
+            }
+            else
+            {
+                ListNode prevNode = head;
+
+                while(prevNode.Next != null)
+                {
+                    if(prevNode.Next.Data < value)
+                    {
+                        prevNode = prevNode.Next;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                newNode.Next = prevNode.Next;
+                prevNode.Next = newNode;
+            }
+        }
+
+        public void Display()
+        {
+            ListNode current = head;
+
+            while (current != null)
+            {
+                Console.Write($" {current.Data} ->");
+                current = current.Next;
+            }
+
+            Console.WriteLine("NULL");
+        }
     }
 
     class MainClass
@@ -339,6 +385,25 @@
         {
             Solution myList = new Solution();
 
+            ListNode node1 = new ListNode(3);
+            ListNode node2 = new ListNode(9);
+            ListNode node3 = new ListNode(13);
+            ListNode node4 = new ListNode(23);
+            ListNode node5 = new ListNode(39);
+
+            myList.head = node1;
+            node1.Next = node2;
+            node2.Next = node3;
+            node3.Next = node4;
+            node4.Next = node5;
+
+            Console.WriteLine("Before insert:");
+            myList.Display();
+
+            myList.InsertInSortedList(1);
+            
+            Console.WriteLine("After insert:");
+            myList.Display();
 
         }
     }
