@@ -314,98 +314,250 @@
     #endregion
 
     #region Problem 15. Insert a node in a sorted Linked List
-    public class ListNode
-    {
-        public int Data;
-        public ListNode Next;
+    //public class ListNode
+    //{
+    //    public int Data;
+    //    public ListNode Next;
 
-        public ListNode(int data)
-        {
-            Data = data;
-            Next = null;
-        }
-    }
+    //    public ListNode(int data)
+    //    {
+    //        Data = data;
+    //        Next = null;
+    //    }
+    //}
 
-    public class Solution
-    {
-        public ListNode head;
+    //public class Solution
+    //{
+    //    public ListNode head;
 
-        public Solution()
-        {
-            head = null;
-        }
+    //    public Solution()
+    //    {
+    //        head = null;
+    //    }
 
-        public void InsertInSortedList(int value)
-        {
-            ListNode newNode = new ListNode(value);
+    //    public void InsertInSortedList(int value)
+    //    {
+    //        ListNode newNode = new ListNode(value);
 
-            if (head == null)
-            {
-                newNode.Next = head;
-                head = newNode;
-            }
-            else
-            {
-                ListNode prevNode = head;
+    //        if (head == null || value < head.Data)
+    //        {
+    //            newNode.Next = head;
+    //            head = newNode;
+    //        }
+    //        else
+    //        {
+    //            ListNode prevNode = head;
 
-                while(prevNode.Next != null)
-                {
-                    if(prevNode.Next.Data < value)
-                    {
-                        prevNode = prevNode.Next;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
+    //            while(prevNode.Next != null)
+    //            {
+    //                if(prevNode.Next.Data < value)
+    //                {
+    //                    prevNode = prevNode.Next;
+    //                }
+    //                else
+    //                {
+    //                    break;
+    //                }
+    //            }
 
-                newNode.Next = prevNode.Next;
-                prevNode.Next = newNode;
-            }
-        }
+    //            newNode.Next = prevNode.Next;
+    //            prevNode.Next = newNode;
+    //        }
+    //    }
 
-        public void Display()
-        {
-            ListNode current = head;
+    //    public void Display()
+    //    {
+    //        ListNode current = head;
 
-            while (current != null)
-            {
-                Console.Write($" {current.Data} ->");
-                current = current.Next;
-            }
+    //        while (current != null)
+    //        {
+    //            Console.Write($" {current.Data} ->");
+    //            current = current.Next;
+    //        }
 
-            Console.WriteLine("NULL");
-        }
-    }
+    //        Console.WriteLine("NULL");
+    //    }
+    //}
 
-    class MainClass
-    {
-        static void Main(string[] args)
-        {
-            Solution myList = new Solution();
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution myList = new Solution();
 
-            ListNode node1 = new ListNode(3);
-            ListNode node2 = new ListNode(9);
-            ListNode node3 = new ListNode(13);
-            ListNode node4 = new ListNode(23);
-            ListNode node5 = new ListNode(39);
+    //        ListNode node1 = new ListNode(3);
+    //        ListNode node2 = new ListNode(9);
+    //        ListNode node3 = new ListNode(13);
+    //        ListNode node4 = new ListNode(23);
+    //        ListNode node5 = new ListNode(39);
 
-            myList.head = node1;
-            node1.Next = node2;
-            node2.Next = node3;
-            node3.Next = node4;
-            node4.Next = node5;
+    //        myList.head = node1;
+    //        node1.Next = node2;
+    //        node2.Next = node3;
+    //        node3.Next = node4;
+    //        node4.Next = node5;
 
-            Console.WriteLine("Before insert:");
-            myList.Display();
+    //        Console.WriteLine("Before insert:");
+    //        myList.Display();
 
-            myList.InsertInSortedList(1);
-            
-            Console.WriteLine("After insert:");
-            myList.Display();
+    //        myList.InsertInSortedList(1);
 
-        }
-    }
+    //        Console.WriteLine("After insert:");
+    //        myList.Display();
+
+    //    }
+    //}
+    #endregion
+
+    #region Problem 16. Reverse a singly Linked List
+    //public class ListNode
+    //{
+    //    public int Data;
+    //    public ListNode Next;
+
+    //    public ListNode(int data)
+    //    {
+    //        Data = data;
+    //        Next = null;
+    //    }
+    //}
+
+    //public class Solution
+    //{
+    //    public ListNode head;
+
+    //    public Solution()
+    //    {
+    //        head = null;
+    //    }
+
+    //    public void ReverseList()
+    //    {
+    //        ListNode prevNode = null;
+    //        ListNode current = head;
+    //        ListNode nextNode = null;
+
+    //        while(current != null)
+    //        {
+    //            nextNode = current.Next;
+    //            current.Next = prevNode;
+    //            prevNode = current;
+    //            current = nextNode;
+    //        }
+
+    //        head = prevNode;
+    //    }
+
+    //    public void Display()
+    //    {
+    //        ListNode current = head;
+
+    //        while (current != null)
+    //        {
+    //            Console.Write(current.Data);
+    //            Console.Write(" -> ");
+    //            current = current.Next;
+    //        }
+
+    //        Console.WriteLine("NULL");
+    //    }
+    //}
+
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution myList = new Solution();
+
+    //        ListNode node1 = new ListNode(3);
+    //        ListNode node2 = new ListNode(9);
+    //        ListNode node3 = new ListNode(13);
+    //        ListNode node4 = new ListNode(23);
+    //        ListNode node5 = new ListNode(39);
+
+    //        myList.head = node1;
+    //        node1.Next = node2;
+    //        node2.Next = node3;
+    //        node3.Next = node4;
+    //        node4.Next = node5;
+
+    //        Console.WriteLine("Before Reverse...");
+    //        myList.Display();
+
+    //        myList.ReverseList();
+
+    //        Console.WriteLine("After reverse...");
+    //        myList.Display();
+    //    }
+    //}
+    #endregion
+
+    #region Problem 29. Check whether the given Linked List length is even or odd?
+    //public class ListNode
+    //{
+    //    public int Data;
+    //    public ListNode Next;
+
+    //    public ListNode(int data)
+    //    {
+    //        Data = data;
+    //        Next = null;
+    //    }
+    //}
+
+    //public class Solution
+    //{
+    //    public ListNode head;
+
+    //    public Solution()
+    //    {
+    //        head = null;
+    //    }
+
+    //    // The ListLength() function takes a linked list as input and counts the number of node in the list
+    //    // Time complexity: O(n)
+    //    public int CheckListLength()
+    //    {
+    //        ListNode current = head;
+    //        int count = 0;
+
+    //        while (current != null)
+    //        {
+    //            count++;
+    //            current = current.Next;
+    //        }
+
+    //        if (count % 2 == 0)
+    //            return 1;
+    //        else return 0;
+    //    }
+    //}
+
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution myList = new Solution();
+
+    //        ListNode node1 = new ListNode(3);
+    //        ListNode node2 = new ListNode(9);
+    //        ListNode node3 = new ListNode(13);
+    //        ListNode node4 = new ListNode(23);
+    //        ListNode node5 = new ListNode(39);
+
+    //        myList.head = node1;
+    //        node1.Next = node2;
+    //        node2.Next = node3;
+    //        node3.Next = node4;
+    //        node4.Next = node5;
+
+    //        Console.WriteLine("Linked list length is odd or even?");
+
+    //        if (myList.CheckListLength() == 1)
+    //            Console.WriteLine("Even");
+    //        else if(myList.CheckListLength() == 0)
+    //            Console.WriteLine("Odd");
+    //    }
+    //}
     #endregion
 }
