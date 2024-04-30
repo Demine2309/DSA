@@ -560,4 +560,48 @@
     //    }
     //}
     #endregion
+
+    #region Problem 30. If the head of a Linked List is pointing to Kth element, then how will you get the elements before Kth element?
+    public class ListNode
+    {
+        public int Data;
+        public ListNode Next;
+
+        public ListNode(int data)
+        {
+            Data = data;
+            Next = null;
+        }
+    }
+
+    public class Solution
+    {
+        public ListNode head;
+
+        public Solution()
+        {
+            head = null;
+        }
+    }
+
+    class MainClass
+    {
+        static void Main(string[] args)
+        {
+            Solution myList = new Solution();
+
+            ListNode node1 = new ListNode(3);
+            ListNode node2 = new ListNode(9);
+            ListNode node3 = new ListNode(13);
+            ListNode node4 = new ListNode(23);
+            ListNode node5 = new ListNode(39);
+
+            myList.head = node1;
+            node1.Next = node2;
+            node2.Next = node3;
+            node3.Next = node4;
+            node4.Next = node5;
+        }
+    }
+    #endregion
 }
