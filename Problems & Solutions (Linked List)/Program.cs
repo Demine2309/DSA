@@ -562,6 +562,87 @@
     #endregion
 
     #region Problem 30. If the head of a Linked List is pointing to Kth element, then how will you get the elements before Kth element?
+    //public class ListNode
+    //{
+    //    public int Data;
+    //    public ListNode Next;
+
+    //    public ListNode(int data)
+    //    {
+    //        Data = data;
+    //        Next = null;
+    //    }
+    //}
+
+    //public class Solution
+    //{
+    //    public ListNode head;
+
+    //    public Solution()
+    //    {
+    //        head = null;
+    //    }
+
+    //    public List<int> GetElementsBeforeKth(int k)
+    //    {
+    //        List<int> elementsBeforeKth = new List<int>();
+
+    //        if (head == null || k <= 0)
+    //        {
+    //            return elementsBeforeKth;
+    //        }
+
+    //        ListNode current = head;
+    //        int count = 1;
+
+    //        while(current != null && count < k)
+    //        {
+    //            elementsBeforeKth.Add(current.Data);
+    //            current = current.Next;
+    //            count++;
+    //        }
+
+    //        return elementsBeforeKth;
+    //    }
+
+    //    public void Display(List<int> list)
+    //    {
+    //        foreach(int i in list)
+    //        {
+    //            Console.Write(i + "  ");
+    //        }
+
+    //        Console.WriteLine();    
+    //    }
+    //}
+
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution myList = new Solution();
+
+    //        ListNode node1 = new ListNode(3);
+    //        ListNode node2 = new ListNode(9);
+    //        ListNode node3 = new ListNode(13);
+    //        ListNode node4 = new ListNode(23);
+    //        ListNode node5 = new ListNode(39);
+
+    //        myList.head = node1;
+    //        node1.Next = node2;
+    //        node2.Next = node3;
+    //        node3.Next = node4;
+    //        node4.Next = node5;
+
+    //        int k = 6;
+
+    //        Console.WriteLine($"The elements before {k}th element...");
+    //        myList.Display(myList.GetElementsBeforeKth(k));
+    //    }
+    //}
+    #endregion
+
+    #region Problem 31. Given 2 sorted Linked Lists, how to merge them into the third list in sorted order?
     public class ListNode
     {
         public int Data;
@@ -582,25 +663,85 @@
         {
             head = null;
         }
+
+        public ListNode Merge2SortedList(ListNode list1, ListNode list2)
+        {
+            ListNode mergedHead = new ListNode(0);
+            ListNode current = mergedHead;
+
+            while(list1 != null && list2 != null)
+            {
+                if(list1.Data <= list2.Data)
+                {
+                    current.Next = list1;
+                    list1 = list1.Next;
+                }
+                else
+                {
+                    current.Next = list2;
+                    list2 = list2.Next;
+                }
+
+                current = current.Next;
+            }
+
+            if (list1 != null)
+                current.Next = list1;
+            else
+                current.Next = list2;
+
+            return mergedHead.Next;
+        }
+
+        public void Display(ListNode head)
+        {
+            ListNode current = head;
+
+            while (current != null)
+            {
+                Console.Write(current.Data);
+                Console.Write(" -> ");
+                current = current.Next;
+            }
+            Console.WriteLine("Null");
+        }
     }
 
     class MainClass
     {
         static void Main(string[] args)
         {
-            Solution myList = new Solution();
+            Solution list1 = new Solution();
+            Solution list2 = new Solution();
+            Solution list3 = new Solution();
 
-            ListNode node1 = new ListNode(3);
-            ListNode node2 = new ListNode(9);
-            ListNode node3 = new ListNode(13);
-            ListNode node4 = new ListNode(23);
-            ListNode node5 = new ListNode(39);
+            ListNode node11 = new ListNode(3);
+            ListNode node12 = new ListNode(9);
+            ListNode node13 = new ListNode(13);
+            ListNode node14 = new ListNode(23);
+            ListNode node15 = new ListNode(39);
 
-            myList.head = node1;
-            node1.Next = node2;
-            node2.Next = node3;
-            node3.Next = node4;
-            node4.Next = node5;
+            list1.head = node11;
+            node11.Next = node12;
+            node12.Next = node13;
+            node13.Next = node14;
+            node14.Next = node15;
+
+            ListNode node21 = new ListNode(3);
+            ListNode node22 = new ListNode(10);
+            ListNode node23 = new ListNode(16);
+            ListNode node24 = new ListNode(22);
+            ListNode node25 = new ListNode(44);
+
+            list2.head = node21;
+            node21.Next = node22;
+            node22.Next = node23;
+            node23.Next = node24;
+            node24.Next = node25;
+
+            list3.head = list3.Merge2SortedList(list1.head, list2.head);
+
+            list3.Display(list3.head);
         }
     }
     #endregion
