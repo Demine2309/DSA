@@ -1,4 +1,7 @@
-﻿namespace DSA
+﻿using System.Runtime.CompilerServices;
+using System.Security.Authentication;
+
+namespace DSA
 {
     #region Problem 1. Discuss how stacks can be used for checking balancing of Symbols
     /*
@@ -19,72 +22,150 @@
 	 *	c. At end of input, if the stack is not empty report an error.
 	 */
 
-    public class ListNode
-    {
-        public int data;
-        public ListNode next;
+    //public class ListNode<T>
+    //{
+    //    public T Data;
+    //    public ListNode<T> Next;
 
-        public ListNode(int data)
-        {
-            this.data = data;
-            next = null;
-        }
-    }
+    //    public ListNode(T data)
+    //    {
+    //        Data = data;
+    //        Next = null;
+    //    }
+    //}
 
-    public class Stack
-    {
-        private ListNode top;
+    //public class Stack<T>
+    //{
+    //    private ListNode<T> top;
 
-        public Stack()
-        {
-            top = null;
-        }
+    //    public Stack()
+    //    {
+    //        top = null;
+    //    }
 
-        public bool IsEmptyStack()
-        {
-            return top == null;
-        }
+    //    public int Count()
+    //    {
+    //        int count = 0;
+    //        ListNode<T> current = top;
 
-        public void Push(int data)
-        {
-            var newNode = new ListNode(data);
-            newNode.next = top;
-            top = newNode;
-        }
+    //        while (current != null)
+    //        {
+    //            count++;
+    //            current = current.Next;
+    //        }
 
-        public int Pop()
-        {
-            if (top == null)
-            {
-                throw new InvalidOperationException("Stack is empty.");
-            }
+    //        return count;
+    //    }
 
-            int poppedData = top.data;
-            top = top.next;
-            return poppedData;
-        }
+    //    public bool IsEmptyStack()
+    //    {
+    //        return top == null;
+    //    }
 
-        public int Peek()
-        {
-            if (top == null)
-                throw new InvalidOperationException("Stack is empty.");
+    //    public void Push(T data)
+    //    {
+    //        var newNode = new ListNode<T>(data);
+    //        newNode.Next = top;
+    //        top = newNode;
+    //    }
 
-            return top.data;
-        }
+    //    public T Pop()
+    //    {
+    //        if (top == null)
+    //        {
+    //            throw new InvalidOperationException("Stack is empty.");
+    //        }
 
-        public void DeleteStack()
-        {
-            top = null;
+    //        T poppedData = top.Data;
+    //        top = top.Next;
+    //        return poppedData;
+    //    }
 
-            Console.WriteLine("Stack has been deleted.");
-        }
-    }
+    //    public T Peek()
+    //    {
+    //        if (top == null)
+    //            throw new InvalidOperationException("Stack is empty.");
 
+    //        return top.Data;
+    //    }
+
+    //    public void DeleteStack()
+    //    {
+    //        top = null;
+
+    //        Console.WriteLine("Stack has been deleted.");
+    //    }
+    //}
+
+    //public class Solution
+    //{
+    //    public bool CheckBalanceSymbols(string str)
+    //    {
+    //        Stack<char> myStack = new Stack<char>();
+
+    //        char[] openingSymbols = new char[] { '(', '{', '[' };
+    //        char[] closingSymbols = new char[] { ')', '}', ']' };
+
+    //        Dictionary<char, char> matches = new Dictionary<char, char>
+    //        {
+    //            { ')', '('},
+    //            { '}', '{'},
+    //            { ']', '['}
+    //        };
+
+    //        foreach (char c in str)
+    //        {
+    //            if (openingSymbols.Contains(c))
+    //            {
+    //                myStack.Push(c);
+    //            }
+    //            else if (closingSymbols.Contains(c))
+    //            {
+    //                if (myStack.Count() == 0 || matches[c] != myStack.Pop())
+    //                {
+    //                    return false;
+    //                }
+    //            }
+    //        }
+
+    //        return myStack.Count() == 0;
+    //    }
+    //}
+
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution solution = new Solution();
+    //        string str = "(){[]}";
+
+    //        Console.WriteLine(solution.CheckBalanceSymbols(str));
+    //    }
+    //}
+    #endregion
+
+    #region Problem 2. Discuss infix to postfix conversion algorithm using stack
+    /*
+     ** Definition:
+     *  - Indix: A indix expression is a single letter, or an operator, proceeded by one infix string and followed by Another
+     *           Indix String. 
+     *           Ex. A; A+B; (A+B)+(c-D)
+     *  - Prefix: A prefix expression is a single letter, or an operator, followed by two prefix strings. Every prefix string 
+     *            longer than a single variable contains an operator, first operand and second operand. 
+     *            Ex. A; +AB; ++AB-CD
+     *  - Postfix: A postfix expression (also called Reverse Polish Notation) is a single letter or an operator, preceded by 
+     *             two postfix strings. Every postfix string longer than a single variable contains first and second operands
+     *             followed by an operator.
+     *             Ex. A; AB+; AB+CD-+
+     */
+    
     public class Solution
     {
-        public void CheckBalanceSymbols(Stack stack)
+        public void ConvertInfixToPostfix(string str)
         {
+            Stack<char> myStack = new Stack<char>();
 
+            
         }
     }
 
@@ -92,12 +173,12 @@
     {
         static void Main(string[] args)
         {
-            Stack myStack = new Stack();
-            myStack.Push();
-
             Solution solution = new Solution();
+            string str = "(A+B)+(C-D)";
 
-            solution.CheckBalanceSymbols(myStack);
+            solution.ConvertInfixToPostfix(str);
+
+            Console.WriteLine(str); // Expect output: AB+CD-+
         }
     }
     #endregion
