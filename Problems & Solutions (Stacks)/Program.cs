@@ -158,14 +158,14 @@ namespace DSA
      *             followed by an operator.
      *             Ex. A; AB+; AB+CD-+
      */
-    
+
     public class Solution
     {
         public void ConvertInfixToPostfix(string str)
         {
             Stack<char> myStack = new Stack<char>();
 
-            
+
         }
     }
 
