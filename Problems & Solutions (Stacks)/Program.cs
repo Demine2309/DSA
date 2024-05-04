@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using Microsoft.VisualBasic;
+using System.Runtime.CompilerServices;
 using System.Security.Authentication;
 
 namespace DSA
@@ -159,65 +160,346 @@ namespace DSA
      *             Ex. A; AB+; AB+CD-+
      */
 
+    //public class Solution
+    //{
+    //    public string ConvertInfixToPostfix(string str)
+    //    {
+    //        Stack<char> myStack = new Stack<char>();
+    //        string result = String.Empty;
+
+    //        for (int i = 0; i < str.Length; i++)
+    //        {
+    //            char c = str[i];
+
+    //            if (Char.IsLetterOrDigit(c))
+    //                result += c;
+
+    //            else if (c == '(')
+    //                myStack.Push(c);
+
+    //            else if (c == ')')
+    //            {
+    //                while (myStack.Count != 0 && myStack.Peek() != '(')
+    //                    result += myStack.Pop();
+
+    //                if (myStack.Count != 0 && myStack.Peek() != '(')
+    //                    return "Invalid expression";
+    //                else
+    //                    myStack.Pop();
+    //            }
+    //            else
+    //            {
+    //                while (myStack.Count != 0 && Prec(c) <= Prec(myStack.Peek()))
+    //                    result += myStack.Pop();
+    //                myStack.Push(c);
+    //            }
+    //        }
+    //        while (myStack.Count != 0)
+    //            result += myStack.Pop();
+
+    //        return result;
+    //    }
+
+    //    private int Prec(char ch) // The "Prec" function in the provided C# code is used to get the precedence of the operators
+    //                              // used in the infix expression
+    //    {
+    //        switch (ch)
+    //        {
+    //            case '+':
+    //            case '-':
+    //                return 1;
+
+    //            case '*':
+    //            case '/':
+    //                return 2;
+
+    //            case '^':
+    //                return 3;
+    //        }
+
+    //        return -1;
+    //    }
+    //}
+
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution solution = new Solution();
+    //        string str = "(A+B)+(C-D)";
+    //        string str2 = "((A+B)-(C+D))*E-(F+K)";
+
+    //        Console.WriteLine(solution.ConvertInfixToPostfix(str)); // Expect output: AB+CD-+
+    //        Console.WriteLine(solution.ConvertInfixToPostfix(str2)); // Expect output: AB+CD+-E*FK+-
+    //    }
+    //}
+    #endregion
+
+    #region Problem 3. Discuss postfix evaluation using stack?? (too hard)
+    ///*
+    // * * Algorithm:
+    // *      1. Scan the Postfix string from left to right.
+    // *      2. Initialize an empty stack.
+    // *      3. Repeat steps 4 and 5 till all the characters are scanned.
+    // *      4. If the scanned character is an operand, push it onto the stack.
+    // *      5. If the scanned character is an operator, and if the operator is a unary operator, then pop an element
+    // *         from the stack. If the operator is a binary operator, then pop two elements from the stack. After popping the elements, 
+    // *         apply the operator to those popped elements. Let the result of this operation be retVal onto the stack.
+    // *      6. After all characters are scanned, we will have only one element in the stack. 
+    // *      7. Return top of the stack as result.
+    // */
+
+    //public class Solution
+    //{
+    //    public int PostfixEvaluation(string str)
+    //    {
+    //        Stack<int> myStack = new Stack<int>();
+    //        int num = 0;
+    //        bool isNum = false;
+
+    //        for (int i = 0; i < str.Length; i++)
+    //        {
+    //            if (Char.IsDigit(str[i]))
+    //            {
+    //                num = num * 10 + (str[i] - '0');
+    //                isNum = true;
+    //            }
+    //            else
+    //            {
+    //                if (isNum)
+    //                {
+    //                    myStack.Push(num);
+    //                    num = 0;
+    //                    isNum = false;
+    //                }
+
+    //                if (myStack.Count < 2)
+    //                {
+    //                    Console.WriteLine("Error: Invalid postfix expression");
+    //                    return -1;
+    //                }
+
+    //                int val1 = myStack.Pop();
+    //                int val2 = myStack.Pop();
+
+    //                switch (str[i])
+    //                {
+    //                    case '+':
+    //                        myStack.Push(val1 + val2);
+    //                        break;
+    //                    case '-':
+    //                        myStack.Push(val1 - val2);
+    //                        break;
+    //                    case '*':
+    //                        myStack.Push(val1 * val2);
+    //                        break;
+    //                    case '/':
+    //                        if (val1 == 0)
+    //                        {
+    //                            Console.WriteLine("Error: Division by zero");
+    //                            return -1;
+    //                        }
+    //                        myStack.Push(val2 / val1);
+    //                        break;
+
+    //                    default:
+    //                        Console.WriteLine("Error: Unknown operator");
+    //                        return -1;
+    //                }
+    //            }
+    //        }
+
+    //        if (isNum)
+    //        {
+    //            myStack.Push(num);
+    //        }
+
+    //        if (myStack.Count != 1)
+    //        {
+    //            Console.WriteLine("Error: Invalid postfix expression");
+    //            return -1;
+    //        }
+
+    //        return myStack.Pop();
+    //    }
+
+    //    //public int PostfixEvaluation(string str)
+    //    //{
+    //    //    Stack<int> myStack = new Stack<int>();
+    //    //    for (int i = 0; i < str.Length; i++)
+    //    //    {
+    //    //        if (Char.IsDigit(str[i]))
+    //    //        {
+    //    //            myStack.Push(str[i] - '0'); // Convert char to int
+    //    //        }
+    //    //        else
+    //    //        {
+    //    //            int val1 = myStack.Pop();
+    //    //            int val2 = myStack.Pop();
+    //    //            switch (str[i])
+    //    //            {
+    //    //                case '+':
+    //    //                    myStack.Push(val2 + val1);
+    //    //                    break;
+
+    //    //                case '-':
+    //    //                    myStack.Push(val2 - val1);
+    //    //                    break;
+
+    //    //                case '*':
+    //    //                    myStack.Push(val2 * val1);
+    //    //                    break;
+
+    //    //                case '/':
+    //    //                    myStack.Push(val2 / val1);
+    //    //                    break;
+    //    //            }
+    //    //        }
+    //    //    }
+    //    //    return myStack.Pop();
+    //    //}
+
+    //    public string ConvertInfixToPostfix(string str)
+    //    {
+    //        Stack<char> myStack = new Stack<char>();
+    //        string result = String.Empty;
+
+    //        for (int i = 0; i < str.Length; i++)
+    //        {
+    //            char c = str[i];
+
+    //            if (Char.IsLetterOrDigit(c))
+    //                result += c;
+
+    //            else if (c == '(')
+    //                myStack.Push(c);
+
+    //            else if (c == ')')
+    //            {
+    //                while (myStack.Count != 0 && myStack.Peek() != '(')
+    //                    result += myStack.Pop();
+
+    //                if (myStack.Count != 0 && myStack.Peek() != '(')
+    //                    return "Invalid expression";
+    //                else
+    //                    myStack.Pop();
+    //            }
+    //            else
+    //            {
+    //                while (myStack.Count != 0 && Prec(c) <= Prec(myStack.Peek()))
+    //                    result += myStack.Pop();
+    //                myStack.Push(c);
+    //            }
+    //        }
+    //        while (myStack.Count != 0)
+    //            result += myStack.Pop();
+
+    //        return result;
+    //    }
+
+    //    private int Prec(char ch) // The "Prec" function in the provided C# code is used to get the precedence of the operators
+    //                              // used in the infix expression
+    //    {
+    //        switch (ch)
+    //        {
+    //            case '+':
+    //            case '-':
+    //                return 1;
+
+    //            case '*':
+    //            case '/':
+    //                return 2;
+
+    //            case '^':
+    //                return 3;
+    //        }
+
+    //        return -1;
+    //    }
+    //}
+
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution solution = new Solution();
+
+    //        string str = "((10+11)-(12+9))*1-(1+1)";
+
+    //        Console.WriteLine(solution.PostfixEvaluation(solution.ConvertInfixToPostfix(str)));
+    //    }
+    //}
+    #endregion
+
+    #region Problem 5. How to design a stack such that GetMinimum() should be O(1)
+    /*
+     * * Solution: Take an auxiliary stack that maintains the minimum of all values in the stack. Also, assume 
+     *             that each element of the stack is less than its below elements. For simplicity let us call the
+     *             auxiliary stack min stack.
+     */
+
+    //public class Solution
+    //{
+    //    private Stack<int> mainStack = new Stack<int>();
+    //    private Stack<int> minStack = new Stack<int>();
+
+    //    public void Push(int x)
+    //    {
+    //        mainStack.Push(x);
+    //        if(mainStack.Count == 0 || x < minStack.Peek())
+    //        {
+    //            minStack.Push(x);
+    //        }
+    //    }
+
+    //    public void Pop()
+    //    {
+    //        if(mainStack.Count > 0)
+    //        {
+    //            int x = mainStack.Pop();
+    //            if(minStack.Count > 0 && x == minStack.Peek())
+    //            {
+    //                minStack.Pop();
+    //            }
+    //        }
+    //    }
+
+    //    public int Top()
+    //    {
+    //        return mainStack.Peek();
+    //    }
+
+    //    public int GetMinimum()
+    //    {
+    //        return minStack.Peek();
+    //    }
+    //}
+
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution minStack = new Solution();
+
+    //        minStack.Push(5);
+    //        minStack.Push(2);
+    //        minStack.Push(10);
+    //        minStack.Push(1);
+    //        Console.WriteLine("Minimum: " + minStack.GetMinimum()); // Output: 1
+    //        minStack.Pop();
+    //        Console.WriteLine("Minimum: " + minStack.GetMinimum()); // Output: 2
+    //    }
+    //}
+    #endregion
+
+    #region Problem 7. For a given array with n symbols how many stack permutations are possible?
+    /*
+     * * Solution: The number of stack permutations with n symbols is represented byCatalan number and we will discuss 
+     *             this in the Dynamic Programming chapter.
+     */
     public class Solution
     {
-        public string ConvertInfixToPostfix(string str)
-        {
-            Stack<char> myStack = new Stack<char>();
-            string result = String.Empty;
 
-            for(int i = 0;i< str.Length;i++)
-            {
-                char c = str[i];
-
-                if (Char.IsLetterOrDigit(c))
-                    result += c;
-
-                else if(c == '(')
-                    myStack.Push(c);
-
-                else if(c == ')')
-                {
-                    while (myStack.Count != 0 && myStack.Peek() != '(')
-                        result += myStack.Pop();
-
-                    if (myStack.Count != 0 && myStack.Peek() != '(')
-                        return "Invalid expression";
-                    else
-                        myStack.Pop();
-                }
-                else
-                {
-                    while(myStack.Count != 0 && Prec(c) <= Prec(myStack.Peek()))
-                        result += myStack.Pop();
-                    myStack.Push(c);
-                }
-            }
-            while (myStack.Count != 0)
-                result += myStack.Pop();
-
-            return result;
-        }
-
-        private int Prec(char ch) // The "Prec" function in the provided C# code is used to get the precedence of the operators
-                                  // used in the infix expression
-        {
-            switch (ch)
-            {
-                case '+':
-                case '-':
-                    return 1;
-
-                case '*':
-                case '/':
-                    return 2;
-
-                case '^':
-                    return 3;
-            }
-
-            return -1;
-        }
     }
 
     class MainClass
@@ -225,11 +507,8 @@ namespace DSA
         static void Main(string[] args)
         {
             Solution solution = new Solution();
-            string str = "(A+B)+(C-D)";
-            string str2 = "((A+B)-(C+D))*E-(F+K)";
 
-            Console.WriteLine(solution.ConvertInfixToPostfix(str)); // Expect output: AB+CD-+
-            Console.WriteLine(solution.ConvertInfixToPostfix(str2));
+
         }
     }
     #endregion
