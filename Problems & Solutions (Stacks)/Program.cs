@@ -161,11 +161,62 @@ namespace DSA
 
     public class Solution
     {
-        public void ConvertInfixToPostfix(string str)
+        public string ConvertInfixToPostfix(string str)
         {
             Stack<char> myStack = new Stack<char>();
+            string result = String.Empty;
 
+            for(int i = 0;i< str.Length;i++)
+            {
+                char c = str[i];
 
+                if (Char.IsLetterOrDigit(c))
+                    result += c;
+
+                else if(c == '(')
+                    myStack.Push(c);
+
+                else if(c == ')')
+                {
+                    while (myStack.Count != 0 && myStack.Peek() != '(')
+                        result += myStack.Pop();
+
+                    if (myStack.Count != 0 && myStack.Peek() != '(')
+                        return "Invalid expression";
+                    else
+                        myStack.Pop();
+                }
+                else
+                {
+                    while(myStack.Count != 0 && Prec(c) <= Prec(myStack.Peek()))
+                        result += myStack.Pop();
+                    myStack.Push(c);
+                }
+            }
+            while (myStack.Count != 0)
+                result += myStack.Pop();
+
+            return result;
+        }
+
+        private int Prec(char ch) // The "Prec" function in the provided C# code is used to get the precedence of the operators
+                                  // used in the infix expression
+        {
+            switch (ch)
+            {
+                case '+':
+                case '-':
+                    return 1;
+
+                case '*':
+                case '/':
+                    return 2;
+
+                case '^':
+                    return 3;
+            }
+
+            return -1;
         }
     }
 
@@ -175,10 +226,10 @@ namespace DSA
         {
             Solution solution = new Solution();
             string str = "(A+B)+(C-D)";
+            string str2 = "((A+B)-(C+D))*E-(F+K)";
 
-            solution.ConvertInfixToPostfix(str);
-
-            Console.WriteLine(str); // Expect output: AB+CD-+
+            Console.WriteLine(solution.ConvertInfixToPostfix(str)); // Expect output: AB+CD-+
+            Console.WriteLine(solution.ConvertInfixToPostfix(str2));
         }
     }
     #endregion
