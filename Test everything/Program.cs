@@ -4,9 +4,10 @@
     {
         static void Main(string[] args)
         {
-            int n = 5;
-             
-            Console.WriteLine(Print(n));
+            string str = "abcldsf";
+            str += 'f';
+
+            Console.WriteLine(str);
         }
 
         public static int Print(int n)

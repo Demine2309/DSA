@@ -492,14 +492,87 @@ namespace DSA
     //}
     #endregion
 
-    #region Problem 7. For a given array with n symbols how many stack permutations are possible?
-    /*
-     * * Solution: The number of stack permutations with n symbols is represented byCatalan number and we will discuss 
-     *             this in the Dynamic Programming chapter.
-     */
+    #region Problem 8. Given an array of characters formed with a's and b's. The string is marked with special character X which represents the middle of the list (for example: ababa...ababXbabab baaa). Check whether the string is palindrome
+    //public class Solution
+    //{
+    //    public bool IsPalindrome(string str)
+    //    {
+    //        Stack<char> myStack = new Stack<char>();
+
+    //        if (str.Length % 2 == 0)
+    //        {
+    //            for(int i = 0; i < str.Length / 2; i++)
+    //            {
+    //                myStack.Push(str[i]);
+
+    //                if (myStack.Peek() != str[str.Length - 1 - i])
+    //                    return false;
+    //                else
+    //                    myStack.Pop();
+    //            }
+    //        }
+    //        else
+    //        {
+    //            if (str[(str.Length - 1) / 2] != 'X')
+    //                return false;
+
+    //            for (int i = 0; i < (str.Length - 1) / 2; i++)
+    //            {
+    //                myStack.Push(str[i]);
+
+    //                if (myStack.Peek() != str[str.Length - 1 - i])
+    //                    return false;
+    //                else
+    //                    myStack.Pop();
+    //            }
+    //        }
+
+    //        return myStack.Count() == 0;
+    //    }
+    //}
+
+    //class MainClass
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Solution solution = new Solution();
+
+    //        string str = "aaababaaa";
+
+    //        Console.WriteLine(solution.IsPalindrome(str));
+    //    }
+    //}
+    #endregion
+
+    #region Problem 11. Given a stack, how to reverse the elements of the stack using only stack operations (push & pop)?
+    // Hint: Use Recursion!!!
     public class Solution
     {
+        public void ReverseStack(Stack<int> stack)
+        {
+            if(stack.Count > 0)
+            {
+                int temp = stack.Pop();
 
+                ReverseStack(stack);
+
+                InsertAtBottom(stack, temp);
+            }
+        }
+
+        private void InsertAtBottom(Stack<int> stack, int item)
+        {
+            if(stack.Count == 0)
+                stack.Push(item);
+            else
+            {
+                int temp = stack.Pop();
+
+                InsertAtBottom(stack, item);
+
+                stack.Push(temp);
+            }
+        }
     }
 
     class MainClass
@@ -508,7 +581,37 @@ namespace DSA
         {
             Solution solution = new Solution();
 
+            Stack<int> myStack = new Stack<int>();
 
+            myStack.Push(3);
+            myStack.Push(9);
+            myStack.Push(13);
+            myStack.Push(23);
+            myStack.Push(39);
+            myStack.Push(46);
+
+            DisplayStack(myStack);
+
+            solution.ReverseStack(myStack);
+
+            DisplayStack(myStack);
+        }
+
+        static void DisplayStack(Stack<int> stack)
+        {
+            if (stack.Count == 0)
+            {
+                Console.WriteLine("The stack is empty.");
+                return;
+            }
+
+            Console.WriteLine("Stack contents:");
+            foreach (int item in stack)
+            {
+                Console.Write(item + "  ");
+            }
+
+            Console.WriteLine();
         }
     }
     #endregion
