@@ -166,9 +166,28 @@
      */
     public class Solution
     {
-        public int MaxSumInSlidingWindow(int[] arr, int w)
+        public int[] MaxSumInSlidingWindow(int[] arr, int w)
         {
+            int n = arr.Length;
+            int[] result = new int[n - w + 1];
+            Queue<int> queue = new Queue<int>();
 
+            int sum = 0;
+            for (int i = 0; i < w; i++)
+            {
+                queue.Enqueue(arr[i]);
+                sum += arr[i];
+            }
+
+            result[0] = sum;
+            for (int i = w; i < n; i++)
+            {
+                sum -= queue.Dequeue() + arr[i];
+                queue.Enqueue(arr[i]);
+                result[i - w + 1] = sum;
+            }
+
+            return result;
         }
     }
 
@@ -181,6 +200,12 @@
             int[] A = { 1, 3, -1, -3, 5, 3, 6, 7 };
             int w = 3;
 
+            int[] result = solution.MaxSumInSlidingWindow(A, w);
+
+            foreach (int i in result)
+            {
+                Console.WriteLine(i);
+            }
         }
     }
     #endregion
