@@ -5,52 +5,52 @@ namespace DSA
     #region Bubble Sort
     //class MainClass
     //{
-    //	static void Main(string[] args)
-    //	{
-    //		int[] arr = { 12, 5, 3, 6, 8, 213, 45, 2, 0, 23 };
+    //    static void Main(string[] args)
+    //    {
+    //        int[] arr = { 12, 5, 3, 6, 8, 213, 45, 2, 0, 23 };
 
-    //		//BubbleSort(arr);
-    //		BubbleSortImproved(arr);
+    //        //BubbleSort(arr);
+    //        BubbleSortImproved(arr);
 
-    //		foreach(int i in arr)
-    //			Console.Write(i + " ");
-    //	}
+    //        foreach (int i in arr)
+    //            Console.Write(i + " ");
+    //    }
 
-    //	static void BubbleSort(int[] arr)
-    //	{
-    //		for(int pass = arr.Length-1; pass >= 0; pass--)
-    //		{
-    //			for(int i = 0; i < pass; i++)
-    //			{
-    //				if (arr[i] > arr[i+1])
-    //				{
-    //					int temp = arr[i];
-    //					arr[i] = arr[i+1];
-    //					arr[i+1] = temp;
-    //				}
-    //			}
-    //		}
-    //	}
+    //    static void BubbleSort(int[] arr)
+    //    {
+    //        for (int pass = arr.Length - 1; pass >= 0; pass--)
+    //        {
+    //            for (int i = 0; i < pass; i++)
+    //            {
+    //                if (arr[i] > arr[i + 1])
+    //                {
+    //                    int temp = arr[i];
+    //                    arr[i] = arr[i + 1];
+    //                    arr[i + 1] = temp;
+    //                }
+    //            }
+    //        }
+    //    }
 
-    //	static void BubbleSortImproved(int[] arr)
-    //	{
-    //		int pass, i, temp, swapped =1;
+    //    static void BubbleSortImproved(int[] arr)
+    //    {
+    //        int temp, swapped = 1;
 
-    //		for(pass = arr.Length - 1; pass >= 0 && swapped == 1; pass--)
-    //		{
-    //			swapped = 0;
-    //			for(i =0; i < pass; i++)
-    //			{
-    //				if (arr[i] > arr[i + 1])
-    //				{
-    //					temp = arr[i];
-    //					arr[i] = arr[i + 1];
-    //					arr[i+1] = temp;
-    //					swapped = 1;
-    //				}
-    //			}
-    //		}
-    //	}
+    //        for (int pass = arr.Length - 1; pass >= 0 && swapped == 1; pass--)
+    //        {
+    //            swapped = 0;
+    //            for (int i = 0; i < pass; i++)
+    //            {
+    //                if (arr[i] > arr[i + 1])
+    //                {
+    //                    temp = arr[i];
+    //                    arr[i] = arr[i + 1];
+    //                    arr[i + 1] = temp;
+    //                    swapped = 1;
+    //                }
+    //            }
+    //        }
+    //    }
     //}
 
     //// Time complexity: Best case: O(n), worst case and average case: O(n^2)
@@ -73,20 +73,20 @@ namespace DSA
 
     //    static void SelectionSort(int[] arr)
     //    {
-    //        for(int i = 0; i < arr.Length - 1; i++)
+    //        for (int i = 0; i < arr.Length - 1; i++)
     //        {
-    //            int min = i;
+    //            int minPos = i;
 
-    //            for(int j = i + 1; j < arr.Length; j++)
+    //            for (int j = i + 1; j < arr.Length; j++)
     //            {
-    //                if (arr[j] < arr[min])
+    //                if (arr[j] < arr[minPos])
     //                {
-    //                    min = j;
+    //                    minPos = j;
     //                }
     //            }
 
-    //            int temp = arr[min];
-    //            arr[min] = arr[i];
+    //            int temp = arr[minPos];
+    //            arr[minPos] = arr[i];
     //            arr[i] = temp;
     //        }
     //    }
@@ -132,67 +132,69 @@ namespace DSA
     #endregion
 
     #region Shell Sort
-    //class MainClass
-    //{
-    //    static void Main(string[] args)
-    //    {
-    //        int[] arr = { 12, 5, 3, 6, 8, 213, 45, 2, 0, 23 };
+    class MainClass
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = { 12, 5, 3, 6, 8, 213, 45, 2, 0, 23 };
 
-    //        ShellSort(arr);
+            ShellSort(arr);
 
-    //        foreach (int i in arr)
-    //        {
-    //            Console.Write(i + " ");
-    //        }
-    //    }
+            foreach (int i in arr)
+            {
+                Console.Write(i + " ");
+            }
+        }
 
-    //    static void ShellSort(int[] arr)
-    //    {
-    //        int h = 1;
+        static void ShellSort(int[] arr)
+        {
+            int h = 3;
 
-    //        //for (h = 1; h < arr.Length / 9; h = 3 * h + 1);
-    //        //for (; h > 0; h = h / 3)
-    //        //{
-    //        //    for (int i = h + 1; i < arr.Length; i++)
-    //        //    {
-    //        //        int v = arr[i];
-    //        //        int j = i;
-    //        //        while (j > h && arr[j - h] > v)
-    //        //        {
-    //        //            arr[j] = arr[j - h];
-    //        //            j -= h;
-    //        //        }
+            while(h > 0)
+            {
+                for(int i = h; i < arr.Length; i++)
+                {
+                    int temp = arr[i];
+                    int j = i;
 
-    //        //        arr[j] = v;
-    //        //    }
-    //        //}
+                    while (j>=h && arr[j-h] > temp)
+                    {
+                        arr[j] = arr[j-h];
+                        j -= h;
+                    }
 
-    //        // Another way to execute this code
-    //        while (h <= arr.Length / 9)
-    //        {
-    //            h = 3 * h + 1;
-    //        }
+                    arr[j] = temp;
+                }
 
-    //        while (h > 0)
-    //        {
-    //            for (int i = h; i < arr.Length; i++)
-    //            {
-    //                int v = arr[i];
-    //                int j = i;
+                h = h / 2;
+            }
 
-    //                while (j >= h && arr[j - h] > v)
-    //                {
-    //                    arr[j] = arr[j - h];
-    //                    j -= h;
-    //                }
+            // Another way to execute this code
+            //while (h <= arr.Length / 9)
+            //{
+            //    h = 3 * h + 1;
+            //}
 
-    //                arr[j] = v;
-    //            }
+            //while (h > 0)
+            //{
+            //    for (int i = h; i < arr.Length; i++)
+            //    {
+            //        int v = arr[i];
+            //        int j = i;
 
-    //            h /= 3;
-    //        }
-    //    }
-    //}
+            //        while (j >= h && arr[j - h] > v)
+            //        {
+            //            arr[j] = arr[j - h];
+            //            j -= h;
+            //        }
+
+            //        arr[j] = v;
+            //    }
+
+            //    h /= 3;
+            //}
+        }
+    }
 
     //// Best case complexity: O(n)
     //// Average case complexity depends on gap sequence
